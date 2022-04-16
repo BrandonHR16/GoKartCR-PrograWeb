@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "f5c6ab1e-9185-45d1-bc50-a1307cf5e41a": {
+      "ProjectGuid": "f5c6ab1e-9185-45d1-bc50-a1307cf5e41a",
+      "DisplayName": "GoKartCR",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Archivos varios",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 1
+}
