@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MlyvZ3u8oG9ZER0NUm6p2p6GBMqTSx5PGKGnhfmnmqtbp3yL793GaqfT4822GrsKxHC96Zt+LZXwZrGv2w2mdA==",
+  "dgSpecHash": "8fTqw83Sn8QAQccHElBzZAipXWLVcIaKuCW19DQIg3KrouEuQGBFWmIGkjwWZbbh0o7BXW5blU4x4vuG2oxIfA==",
   "success": true,
-  "projectFilePath": "D:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR\\GoKartAPI\\GoKartAPI\\GoKartAPI.csproj",
+  "projectFilePath": "D:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartAPI\\GoKartAPI\\GoKartAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\CPU\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\CPU\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",

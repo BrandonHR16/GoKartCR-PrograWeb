@@ -12,6 +12,9 @@ namespace GoKartCR.Controllers
     public class HomeController : Controller
     {
         UsuarioModel usuariomodel = new UsuarioModel();
+        PistasModel pistasModel = new PistasModel();
+        PaquetesModel paqueteModel = new PaquetesModel();
+
         dynamic mymodel = new ExpandoObject();
         private readonly ILogger<HomeController> _logger;
 
@@ -23,6 +26,7 @@ namespace GoKartCR.Controllers
         public IActionResult Index()
         {
             mymodel.Pistas = GetPistas();
+            mymodel.Paquetes = GetPaquetes();
             return View(mymodel);
         }
 
@@ -133,8 +137,15 @@ namespace GoKartCR.Controllers
 
         public List<Pista> GetPistas()
         {
-            PistaRespuesta res = usuariomodel.obtenerPistas();
+            PistaRespuesta res = pistasModel.obtenerPistas();
             return res.listaDePistas;
+
+        }
+
+        public List<Paquete> GetPaquetes()
+        {
+            PaqueteRespuesta res = paqueteModel.obtenerPaquete();
+            return res.listaDePaquetes;
 
         }
     }

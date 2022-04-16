@@ -78,8 +78,10 @@ create table TB_Paquete(
 	costo decimal(19,4) not null,
 	tiempoOfrecido time not null,
 	cantidadUsuarios int not null,
+	imagen varbinary(max) null,
 	idGoKart int not null,
 	idPista int not null,
+
 
 	constraint PK_Paquete_IdPaquete primary key (idPaquete),
 	constraint Paquete_Nombre_Unico unique (nombre),

@@ -292,3 +292,14 @@ begin
 	where idGoKart = @idGoKart;
 
 end;
+
+/*Paquete*/
+go
+Create or ALTER   procedure [dbo].[selectPaquetes]
+as
+begin
+
+	select idPista, nombre, descripcion, costo, tiempoOfrecido, cantidadUsuarios, imagen
+	from TB_Paquete;
+
+end;

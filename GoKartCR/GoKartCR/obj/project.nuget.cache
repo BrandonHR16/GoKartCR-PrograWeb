@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VruwliN0yOpLHm3stFzw3CF+xCMLUVi06zqEwfSV1ll5TjR9Rlx5rv4cs0qfCbLcIb64ObQDvBaw1dLeB1bkVQ==",
+  "dgSpecHash": "DJkjyd9KQTMwZpSvEoRAf/rMEKRhYWFU0RLfXPxL+DSof5oTq4909Irbkz6oh5tHuRWleDMrHG9o6PrCj7P+FQ==",
   "success": true,
-  "projectFilePath": "D:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR\\GoKartCR\\GoKartCR\\GoKartCR.csproj",
+  "projectFilePath": "D:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartCR\\GoKartCR\\GoKartCR.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\CPU\\.nuget\\packages\\currietechnologies.razor.sweetalert2\\5.2.1\\currietechnologies.razor.sweetalert2.5.2.1.nupkg.sha512",
     "C:\\Users\\CPU\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",

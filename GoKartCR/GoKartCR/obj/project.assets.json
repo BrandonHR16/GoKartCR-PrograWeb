@@ -9403,11 +9403,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR\\GoKartCR\\GoKartCR\\GoKartCR.csproj",
+      "projectUniqueName": "D:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartCR\\GoKartCR\\GoKartCR.csproj",
       "projectName": "GoKartCR",
-      "projectPath": "D:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR\\GoKartCR\\GoKartCR\\GoKartCR.csproj",
+      "projectPath": "D:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartCR\\GoKartCR\\GoKartCR.csproj",
       "packagesPath": "C:\\Users\\CPU\\.nuget\\packages\\",
-      "outputPath": "D:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR\\GoKartCR\\GoKartCR\\obj\\",
+      "outputPath": "D:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartCR\\GoKartCR\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\CPU\\AppData\\Roaming\\NuGet\\NuGet.Config",
