@@ -1,0 +1,86 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - GoKartCR</title>
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/font-awesome.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/GoKartCR.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/aos.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/tooplate-gymso-style.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/sweetalert2.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/NavAdmin.css" asp-append-version="true" />
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css' asp-append-version="true">
+
+</head>
+<body class="body-pd" data-spy="scroll" data-target="#navbarNav" data-offset="50">
+
+    <div class="btn"> <span class="fas fa-bars"></span> </div>
+    <nav class="sidebar">
+        <div class="text"> BBBootstrap.com </div>
+        <ul class="main_side">
+            <li class="active"><a href="#">Dashboard</a></li>
+            <li>
+                <a href="#" id="1">Pages <span class="fas fa-caret-down"></span> </a>
+                <ul class="item-show-1">
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Our Team</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" id="2">Services <span class="fas fa-caret-down"></span> </a>
+                <ul class="item-show-2">
+                    <li><a href="#">App Design</a></li>
+                    <li><a href="#">Web Design</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Users</a></li>
+            <li><a href="#">Message</a></li>
+            <li><a href="#">Bookmark</a></li>
+            <li><a href="#">Files</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        @RenderBody()
+    </div>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/smoothscroll.js"></script>
+    <script src="~/js/custom.js"></script>
+    <script src="~/js/aos.js"></script>
+    <script src="~/js/sweetalert2.js"></script>
+    <script src="~/js/navAdmin.js"></script>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    @{
+        string classAlerta = string.Empty;
+    }
+
+    @if (TempData["Mensaje"] != null)
+    {
+        <script>
+            var data = "@TempData["Mensaje"].ToString()"
+            var data2 = data.split(".");
+            console.log(data2)
+              Swal.fire(
+              data2[0],
+              '',
+              data2[1]
+            )
+        </script>
+
+        TempData["Mensaje"] = null;
+    }
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

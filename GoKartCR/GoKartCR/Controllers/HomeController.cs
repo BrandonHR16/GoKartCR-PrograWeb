@@ -169,7 +169,7 @@ namespace GoKartCR.Controllers
                 }
                 else
                 {
-                    TempData["Mensaje"] = "Error al eviar el mensaje.error";
+                    TempData["Mensaje"] = "Error al enviar el mensaje.error";
                     return RedirectToAction("Index", "Home");
                 }
 

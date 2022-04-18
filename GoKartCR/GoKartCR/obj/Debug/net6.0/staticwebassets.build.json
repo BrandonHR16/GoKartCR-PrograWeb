@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "uEnea3dn47KJrYD6BbRIFby+dlTMZ16kdMWPoZ1GEvQ=",
+  "Hash": "Q/ubUh3BN16MCTiybbIeoyF+4fRW6wzOqNQ3Y/6Gi3g=",
   "Source": "GoKartCR",
   "BasePath": "_content/GoKartCR",
   "Mode": "Default",
@@ -697,6 +697,23 @@
       "OriginalItemSpec": "wwwroot\\css\\font-awesome.min.css"
     },
     {
+      "Identity": "D:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartCR\\GoKartCR\\wwwroot\\css\\NavAdmin.css",
+      "SourceId": "GoKartCR",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartCR\\GoKartCR\\wwwroot\\",
+      "BasePath": "_content/GoKartCR",
+      "RelativePath": "css/NavAdmin.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\NavAdmin.css"
+    },
+    {
       "Identity": "D:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartCR\\GoKartCR\\wwwroot\\css\\site.css",
       "SourceId": "GoKartCR",
       "SourceType": "Discovered",
@@ -1290,6 +1307,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\jquery.min.js"
+    },
+    {
+      "Identity": "D:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartCR\\GoKartCR\\wwwroot\\js\\navAdmin.js",
+      "SourceId": "GoKartCR",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartCR\\GoKartCR\\wwwroot\\",
+      "BasePath": "_content/GoKartCR",
+      "RelativePath": "js/navAdmin.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\navAdmin.js"
     },
     {
       "Identity": "D:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartCR\\GoKartCR\\wwwroot\\js\\site.js",
