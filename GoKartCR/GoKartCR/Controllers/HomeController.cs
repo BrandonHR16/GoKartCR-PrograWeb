@@ -14,6 +14,7 @@ namespace GoKartCR.Controllers
         UsuarioModel usuariomodel = new UsuarioModel();
         PistasModel pistasModel = new PistasModel();
         PaquetesModel paqueteModel = new PaquetesModel();
+        PreguntasModel preguntaModel = new PreguntasModel();
 
         dynamic mymodel = new ExpandoObject();
         private readonly ILogger<HomeController> _logger;
@@ -41,7 +42,7 @@ namespace GoKartCR.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-
+        //Reagistro de Usuarios e Iniciar sesion 
         public async Task<IActionResult> IniciarSession(string correoElectronico, string contrasennia)
         {
             try
@@ -135,6 +136,8 @@ namespace GoKartCR.Controllers
 
         }
 
+
+        //Informacion de Paquetes y Pistas
         public List<Pista> GetPistas()
         {
             PistaRespuesta res = pistasModel.obtenerPistas();
@@ -148,5 +151,36 @@ namespace GoKartCR.Controllers
             return res.listaDePaquetes;
 
         }
+
+        //Preguntas
+        public async Task<IActionResult> enviarPregunta(string Nombre, string Correo, string Mensaje)
+        {
+            try
+            {
+                Pregunta pregunta = new Pregunta();
+                pregunta.nombreUsuario = Nombre;
+                pregunta.correo = Correo;
+                pregunta.mensaje = Mensaje;
+                var res = await preguntaModel.RegistarPregunta(pregunta);
+                if (res.mensaje == "OK!")
+                {
+                    TempData["Mensaje"] = "Mesaje enviado exitosamente.success";
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    TempData["Mensaje"] = "Error al eviar el mensaje.error";
+                    return RedirectToAction("Index", "Home");
+                }
+
+            }
+            catch (Exception)
+            {
+
+                TempData["Mensaje"] = "Error al establecer conexion con el servidor.error";
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
     }
 }

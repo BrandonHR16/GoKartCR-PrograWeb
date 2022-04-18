@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FYAs3XZH1dguH9vr5rPQRwfKsIxuR++zf/k1mwMLy0E=",
+  "Hash": "uEnea3dn47KJrYD6BbRIFby+dlTMZ16kdMWPoZ1GEvQ=",
   "Source": "GoKartCR",
   "BasePath": "_content/GoKartCR",
   "Mode": "Default",
@@ -663,6 +663,23 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap.min.css"
     },
     {
+      "Identity": "D:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartCR\\GoKartCR\\wwwroot\\css\\BotonFomulario.scss",
+      "SourceId": "GoKartCR",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartCR\\GoKartCR\\wwwroot\\",
+      "BasePath": "_content/GoKartCR",
+      "RelativePath": "css/BotonFomulario.scss",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\BotonFomulario.scss"
+    },
+    {
       "Identity": "D:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartCR\\GoKartCR\\wwwroot\\css\\font-awesome.min.css",
       "SourceId": "GoKartCR",
       "SourceType": "Discovered",
@@ -1120,6 +1137,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\logotipo-de-instagram.png"
+    },
+    {
+      "Identity": "D:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartCR\\GoKartCR\\wwwroot\\images\\shopping-bag-free-icon-font.png",
+      "SourceId": "GoKartCR",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartCR\\GoKartCR\\wwwroot\\",
+      "BasePath": "_content/GoKartCR",
+      "RelativePath": "images/shopping-bag-free-icon-font.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\shopping-bag-free-icon-font.png"
     },
     {
       "Identity": "D:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartCR\\GoKartCR\\wwwroot\\images\\team\\pista1.jpg",

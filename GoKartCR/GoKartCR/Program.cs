@@ -27,7 +27,7 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseSession();
-
+app.UseStaticFiles();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

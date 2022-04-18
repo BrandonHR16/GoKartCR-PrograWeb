@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="~/css/aos.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/tooplate-gymso-style.css" asp-append-version="true">
     <link rel="stylesheet" href="~/css/sweetalert2.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/BotonFomulario.scss" asp-append-version="true" />
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css' asp-append-version="true">
 
 </head>
 <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
@@ -51,24 +53,35 @@
                     <li class="nav-item">
                         <a href="#contact" class="nav-link smoothScroll">Contactentos</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link smoothScroll">
+                            <img src="~/images/shopping-bag-free-icon-font.png" width="20" height="20" />
+                           @{
+                                  var Carrito = Context.Request.Cookies["Carrito"];
+
+
+                           }
+                        </a>
+                    </li>
+
+                    @{
+                        var Nombre = Context.Request.Cookies["Nombre"];
+
+                        if (Nombre != null)
+                        {
+                        //si la cookie existe
+                            //mostrar el nombre del usuario
+                            <div class="nameuser" href=""> Bienvenido @Nombre </div>
+                        }
+                        else
+                        {
+                            //si la cookie no existe
+
+
+                        }
+                    }
+
                 </ul>
-
-                @{
-                    var Nombre = Context.Request.Cookies["Nombre"];
-
-                if (Nombre != null)
-                {
-                    //si la cookie existe
-                    //mostrar el nombre del usuario
-                    <div  class="nameuser" href=""> Bienvenido @Nombre </div>
-                }
-                else
-                {
-                    //si la cookie no existe
-
-                           
-                }
-                }
             </div>
 
         </div>

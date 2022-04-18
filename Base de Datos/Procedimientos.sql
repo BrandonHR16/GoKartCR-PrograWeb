@@ -303,3 +303,47 @@ begin
 	from TB_Paquete;
 
 end;
+
+/*Preguntas Frecuentes*/
+go
+create or alter procedure registrarPregunta
+(
+
+	@nombreUsuario varchar(64),
+	@correo varchar(64),
+	@mensaje varchar(4024)
+
+)
+as
+begin
+
+	insert into TB_Pregunta(nombreUsuario,correo,mensaje)
+	values(@nombreUsuario,@correo,@mensaje);
+
+end;
+
+go
+create or alter procedure selectPreguntas
+as
+begin
+
+	select idPregunta, nombreUsuario, correo, mensaje
+	from TB_Pregunta;
+
+end;
+
+
+go
+create or alter procedure eliminarPregunta
+(
+
+	@idPregunta int
+
+)
+as
+begin
+
+	delete from TB_Pregunta
+	where idPregunta = @idPregunta;
+
+end;

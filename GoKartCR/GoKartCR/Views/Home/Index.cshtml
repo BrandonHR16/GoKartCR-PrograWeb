@@ -104,20 +104,14 @@
                     <div class="mr-lg-auto mt-5 mt-lg-0 mt-md-0 col-lg-3 col-md-6 col-12" data-aos="fade-up" data-aos-delay="800">
                         <div class="team-thumb">
                             <img src="@imgSrc" class="img-fluid" alt="Trainer">
-
                             <div class="team-info d-flex flex-column">
-
                                 <h3>@pista.nombrePista</h3>
                                 <span>Capacidad: @pista.capacidadUsuarios</span>
                                 <span>Distancia: @pista.distanciaMetros</span>
-
                             </div>
                         </div>
                     </div>
-
                 }
-
-
             }
         </div>
 
@@ -289,16 +283,51 @@
 
             <div class="ml-auto col-lg-5 col-md-6 col-12">
                 <h2 class="mb-4 pb-2" data-aos="fade-up" data-aos-delay="200">Siéntase libre de preguntar</h2>
+                @using (Html.BeginForm("enviarPregunta", "Home", FormMethod.Post, new { id = "FormMensaje", @class = "contact-form webform" }))
+                {
+                    @Html.TextBox("Nombre","",
+                new
+                {
+                @class="form-control",
+                @type="text",
+                @placeholder="Nombre"
+                })
+                    @Html.TextBox("Correo","",
+                new
+                {
+                @class="form-control",
+                @type="email",
+                @placeholder="Correo"
+                })
+                    @Html.TextBox("Mensaje","",
+                new
+                {
+                @class="form-control",
+                @type="input",
+                @placeholder="Mensaje"
+                })
+                    <button class="btn-evio">
+                        <span class="default">Enviar</span>
+                        <span class="success">
+                            <svg viewBox="0 0 16 16">
+                                <polyline points="3.75 9 7 12 13 5"></polyline>
+                            </svg>Sent
+                        </span>
+                        <svg class="trails" viewBox="0 0 33 64">
+                            <path d="M26,4 C28,13.3333333 29,22.6666667 29,32 C29,41.3333333 28,50.6666667 26,60"></path>
+                            <path d="M6,4 C8,13.3333333 9,22.6666667 9,32 C9,41.3333333 8,50.6666667 6,60"></path>
+                        </svg>
+                        <div class="plane">
+                            <div class="left"></div>
+                            <div class="right"></div>
+                        </div>
+                    </button>
+                }
 
-                <form action="#" method="post" class="contact-form webform" data-aos="fade-up" data-aos-delay="400" role="form">
-                    <input type="text" class="form-control" name="cf-name" placeholder="Nombre">
 
-                    <input type="email" class="form-control" name="cf-email" placeholder="Correo">
 
-                    <textarea class="form-control" rows="5" name="cf-message" placeholder="Mensaje"></textarea>
 
-                    <button type="submit" class="form-control" id="submit-button" name="submit">Enviar Mensaje</button>
-                </form>
+
             </div>
 
             <div class="mx-auto mt-4 mt-lg-0 mt-md-0 col-lg-5 col-md-6 col-12">
