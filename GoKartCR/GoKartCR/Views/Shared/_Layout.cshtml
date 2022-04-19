@@ -51,16 +51,15 @@
                     <li class="nav-item">
                         <a href="#contact" class="nav-link smoothScroll">
                             <img src="~/images/shopping-bag-free-icon-font.png" width="20" height="20" />
-                           @{
-                                  var Carrito = Context.Request.Cookies["Carrito"];
-
-
-                           }
+                            @{
+                                var Carrito = Context.Request.Cookies["Carrito"];
+                            }
                         </a>
                     </li>
 
                     @{
                         var Nombre = Context.Request.Cookies["Nombre"];
+                        var Rol = Context.Request.Cookies["Rol"];
 
                         if (Nombre != null)
                         {
@@ -74,6 +73,13 @@
 
 
                         }
+                        if (Rol == "1")
+                        {
+                            <li class="nav-item">
+                                <a href="@Url.Action("preguntasFrecuentes", "Administrador")" class="nav-link smoothScroll">Administrar</a>
+                            </li>
+                        }
+
                     }
 
                 </ul>

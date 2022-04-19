@@ -43,6 +43,7 @@ namespace GoKartCR.Controllers
         }
 
         //Reagistro de Usuarios e Iniciar sesion 
+        [HttpGet]
         public async Task<IActionResult> IniciarSession(string correoElectronico, string contrasennia)
         {
             try
@@ -55,6 +56,7 @@ namespace GoKartCR.Controllers
 
                         if (res.mensaje == "OK!")
                         {
+                            Response.Cookies.Append("Rol", res.listaUsuarios[0].idRol.ToString(), new Microsoft.AspNetCore.Http.CookieOptions { Expires = DateTime.Now.AddMinutes(10) });
                             Response.Cookies.Append("Nombre", res.listaUsuarios[0].primerNombre, new Microsoft.AspNetCore.Http.CookieOptions { Expires = DateTime.Now.AddMinutes(10) });
                             TempData["Mensaje"] = "Inicio sesion correctamente.success";
                             return RedirectToAction("Index", "Home");
@@ -85,6 +87,7 @@ namespace GoKartCR.Controllers
             }
         }
 
+        [HttpPost]
         public async Task<IActionResult> Registrarse(string Cedula, string Nombre, string PrimerApellido, string SegundoApellido, string correoElectronico, string contrasennia, string Telefono, string Direccion)
         {
             try
@@ -138,6 +141,7 @@ namespace GoKartCR.Controllers
 
 
         //Informacion de Paquetes y Pistas
+        [HttpGet]
         public List<Pista> GetPistas()
         {
             PistaRespuesta res = pistasModel.obtenerPistas();
@@ -145,6 +149,7 @@ namespace GoKartCR.Controllers
 
         }
 
+        [HttpGet]
         public List<Paquete> GetPaquetes()
         {
             PaqueteRespuesta res = paqueteModel.obtenerPaquete();
@@ -153,6 +158,7 @@ namespace GoKartCR.Controllers
         }
 
         //Preguntas
+        [HttpPost]
         public async Task<IActionResult> enviarPregunta(string Nombre, string Correo, string Mensaje)
         {
             try

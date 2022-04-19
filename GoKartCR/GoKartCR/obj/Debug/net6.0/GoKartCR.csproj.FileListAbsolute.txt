@@ -510,7 +510,6 @@ D:\Universidad\Universidad\Proyectos de Programacion\GoKartCR-PrograWeb\GoKartCR
 D:\Universidad\Universidad\Proyectos de Programacion\GoKartCR-PrograWeb\GoKartCR\GoKartCR\bin\Debug\net6.0\runtimes\win-arm\lib\net6.0\dotnet-aspnet-codegenerator-design.exe
 D:\Universidad\Universidad\Proyectos de Programacion\GoKartCR-PrograWeb\GoKartCR\GoKartCR\bin\Debug\net6.0\runtimes\win-arm64\lib\net6.0\dotnet-aspnet-codegenerator-design.exe
 D:\Universidad\Universidad\Proyectos de Programacion\GoKartCR-PrograWeb\GoKartCR\GoKartCR\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\Universidad\Universidad\Proyectos de Programacion\GoKartCR-PrograWeb\GoKartCR\GoKartCR\obj\Debug\net6.0\GoKartCR.csproj.AssemblyReference.cache
 D:\Universidad\Universidad\Proyectos de Programacion\GoKartCR-PrograWeb\GoKartCR\GoKartCR\obj\Debug\net6.0\GoKartCR.GeneratedMSBuildEditorConfig.editorconfig
 D:\Universidad\Universidad\Proyectos de Programacion\GoKartCR-PrograWeb\GoKartCR\GoKartCR\obj\Debug\net6.0\GoKartCR.AssemblyInfoInputs.cache
 D:\Universidad\Universidad\Proyectos de Programacion\GoKartCR-PrograWeb\GoKartCR\GoKartCR\obj\Debug\net6.0\GoKartCR.AssemblyInfo.cs
@@ -528,3 +527,4 @@ D:\Universidad\Universidad\Proyectos de Programacion\GoKartCR-PrograWeb\GoKartCR
 D:\Universidad\Universidad\Proyectos de Programacion\GoKartCR-PrograWeb\GoKartCR\GoKartCR\obj\Debug\net6.0\ref\GoKartCR.dll
 D:\Universidad\Universidad\Proyectos de Programacion\GoKartCR-PrograWeb\GoKartCR\GoKartCR\obj\Debug\net6.0\GoKartCR.pdb
 D:\Universidad\Universidad\Proyectos de Programacion\GoKartCR-PrograWeb\GoKartCR\GoKartCR\obj\Debug\net6.0\GoKartCR.genruntimeconfig.cache
+D:\Universidad\Universidad\Proyectos de Programacion\GoKartCR-PrograWeb\GoKartCR\GoKartCR\obj\Debug\net6.0\GoKartCR.csproj.AssemblyReference.cache

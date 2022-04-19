@@ -1,16 +1,23 @@
-﻿$('.btn').click(function () {
-    $(this).toggleClass("click");
-    $('.sidebar').toggleClass("show");
+﻿$(document).ready(function(){
+   
+
+    $(".btnEnviar").click(function (e) {
+        e.preventDefault();
+        let row = $(this).closest('tr');
+        let nombre = row.find('td:eq(1)').text();
+        let correo = row.find('td:eq(2)').text();
+
+
+        var txtCorreo = document.getElementById('correoModal')
+        txtCorreo.value = correo;
+        var txtNombre = document.getElementById('MensajeModal')
+        txtNombre.value = 'Estimado ' + nombre+',';
+        $("#nombreModal").val(nombre);
+        var myModal = new bootstrap.Modal(document.getElementById('modalMensaje'))
+        myModal.show()
+
+    });
+
 });
-
-
-$('.sidebar ul li a').click(function () {
-    var id = $(this).attr('id');
-    $('nav ul li ul.item-show-' + id).toggleClass("show");
-    $('nav ul li #' + id + ' span').toggleClass("rotate");
-
-});
-
-$('nav ul li').click(function () {
-    $(this).addClass("active").siblings().removeClass("active");
-});
+  
+       

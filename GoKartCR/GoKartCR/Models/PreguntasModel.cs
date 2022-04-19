@@ -19,5 +19,18 @@ namespace GoKartCR.Models
 
             }
         }
+
+        public async Task<PreguntaRespuesta> GetPreguntas()
+        {
+            using (var http = new HttpClient())
+            {
+                var response = http.GetAsync("https://localhost:7169/api/Pregunta/selectPreguntas").Result;
+
+                var res = JsonConvert.DeserializeObject<PreguntaRespuesta>(response.Content.ReadAsStringAsync().Result);
+
+                return res;
+
+            }
+        }
     }
 }

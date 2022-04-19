@@ -1,5 +1,101 @@
-﻿@{
+﻿@using GoKartCR.Entities
+@model GoKartCR.Entities.PreguntaRespuesta;
+@{
     Layout = "_LayoutAdmin";
 }
 
-<h1>Hola</h1>
+<div class="container">
+    <div class="text-xl-center fs-2">Preguntas</div>
+    <div class="card">
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Pregunta</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if( Model != null){
+                     @foreach (Pregunta pregunta in Model.listaDePreguntas)
+                    {
+                        <tr>
+                        <td>@pregunta.idPregunta</td>
+                        <td>@pregunta.nombreUsuario</td>
+                        <td>@pregunta.correo</td>
+                        <td>@pregunta.mensaje</td>
+                        <td><button id="btnEnviar" class="btn btnResponder btnEnviar">Responder</button></td>
+                    </tr>
+                    }                       
+        }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalMensaje">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="">
+
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <h2 class="modal-title">Formulario de Registro</h2>
+
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                   
+                </button>
+            </div>
+
+            <div class="modal-body">
+                @using (Html.BeginForm("Registrarse", "Home"))
+                {
+                    <div class="row gx-2">
+
+                        <div class="col">
+                            <div>
+                                <label class="text-center">Correo</label>
+                                @Html.TextBox("Cedula","",
+                            new
+                            {
+                            @class="form-control",
+                            @type="email",
+                            @id="correoModal"
+                            })
+                            </div>
+                            <div>
+                                <label class="text-center">Asunto</label>
+                                @Html.TextBox("Nombre","",
+                            new
+                            {
+                            @class="form-control",
+                            @type="input",
+                            @id="AsuntoModal"
+                            })
+                            </div>
+                             <div>
+                                <label class="text-center">Mensaje</label>
+                                @Html.TextArea("PrimerApellido","",
+                            new
+                            {
+                            @class="form-control",
+                            @type="text",
+                            @id="MensajeModal"
+                            })
+                            </div>
+                            <div>
+                                <button type="submit" class="form-control" id="submit-button" name="submit">Registrarse</button>
+                            </div>
+                        </div>
+
+                    </div>
+                }
+            </div>
+
+            <div class="modal-footer"></div>
+
+        </div>
+    </div>
