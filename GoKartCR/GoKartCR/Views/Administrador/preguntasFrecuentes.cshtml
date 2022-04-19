@@ -5,10 +5,10 @@
 }
 
 <div class="container">
-    <div class="text-xl-center fs-2">Preguntas</div>
+    <div class="text-xl-center fs-2 ">Preguntas</div>
     <div class="card">
         <div class="card-body">
-            <table class="table table-striped">
+            <table class="" id="TablaPreguntas">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -43,7 +43,7 @@
         <div class="modal-content">
             <div class="modal-header">
 
-                <h2 class="modal-title">Formulario de Registro</h2>
+                <h2 class="modal-title">Responder</h2>
 
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                    
@@ -51,24 +51,24 @@
             </div>
 
             <div class="modal-body">
-                @using (Html.BeginForm("Registrarse", "Home"))
+                @using (Html.BeginForm("envioCorreo", "Administrador"))
                 {
                     <div class="row gx-2">
 
                         <div class="col">
                             <div>
                                 <label class="text-center">Correo</label>
-                                @Html.TextBox("Cedula","",
+                                @Html.TextBox("correo","",
                             new
                             {
                             @class="form-control",
                             @type="email",
-                            @id="correoModal"
+                            @id="correoModal"           
                             })
                             </div>
                             <div>
                                 <label class="text-center">Asunto</label>
-                                @Html.TextBox("Nombre","",
+                                @Html.TextBox("Asunto","",
                             new
                             {
                             @class="form-control",
@@ -78,7 +78,7 @@
                             </div>
                              <div>
                                 <label class="text-center">Mensaje</label>
-                                @Html.TextArea("PrimerApellido","",
+                                @Html.TextArea("Mensaje","",
                             new
                             {
                             @class="form-control",
@@ -87,7 +87,7 @@
                             })
                             </div>
                             <div>
-                                <button type="submit" class="form-control" id="submit-button" name="submit">Registrarse</button>
+                                <button type="submit" class="form-control" id="submit-button" name="submit">Enviar Correo</button>
                             </div>
                         </div>
 

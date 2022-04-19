@@ -43,7 +43,6 @@ namespace GoKartCR.Controllers
         }
 
         //Reagistro de Usuarios e Iniciar sesion 
-        [HttpGet]
         public async Task<IActionResult> IniciarSession(string correoElectronico, string contrasennia)
         {
             try

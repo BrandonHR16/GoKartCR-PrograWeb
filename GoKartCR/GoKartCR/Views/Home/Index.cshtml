@@ -283,7 +283,7 @@
 
             <div class="ml-auto col-lg-5 col-md-6 col-12">
                 <h2 class="mb-4 pb-2" data-aos="fade-up" data-aos-delay="200">Siéntase libre de preguntar</h2>
-                @using (Html.BeginForm("enviarPregunta", "Home", FormMethod.Post, new { id = "FormMensaje", @class = "contact-form webform" }))
+                @using (Html.BeginForm("enviarPregunta", "Home", FormMethod.Get, new { id = "FormMensaje", @class = "contact-form webform" }))
                 {
                     @Html.TextBox("Nombre","",
                 new
