@@ -6,6 +6,7 @@ using System.Diagnostics;
 using Microsoft.JSInterop;
 using CurrieTechnologies.Razor.SweetAlert2;
 using System.Dynamic;
+using System.Globalization;
 
 namespace GoKartCR.Controllers
 {
@@ -15,6 +16,7 @@ namespace GoKartCR.Controllers
         PistasModel pistasModel = new PistasModel();
         PaquetesModel paqueteModel = new PaquetesModel();
         PreguntasModel preguntaModel = new PreguntasModel();
+        ReservaModel reservasModel = new ReservaModel();
 
         dynamic mymodel = new ExpandoObject();
         private readonly ILogger<HomeController> _logger;
@@ -86,7 +88,7 @@ namespace GoKartCR.Controllers
             }
         }
 
-        [HttpPost]
+
         public async Task<IActionResult> Registrarse(string Cedula, string Nombre, string PrimerApellido, string SegundoApellido, string correoElectronico, string contrasennia, string Telefono, string Direccion)
         {
             try
@@ -140,7 +142,7 @@ namespace GoKartCR.Controllers
 
 
         //Informacion de Paquetes y Pistas
-        [HttpGet]
+
         public List<Pista> GetPistas()
         {
             PistaRespuesta res = pistasModel.obtenerPistas();
@@ -148,16 +150,15 @@ namespace GoKartCR.Controllers
 
         }
 
-        [HttpGet]
+
         public List<Paquete> GetPaquetes()
         {
             PaqueteRespuesta res = paqueteModel.obtenerPaquete();
             return res.listaDePaquetes;
 
         }
-
         //Preguntas
-        [HttpPost]
+
         public async Task<IActionResult> enviarPregunta(string Nombre, string Correo, string Mensaje)
         {
             try
@@ -187,5 +188,12 @@ namespace GoKartCR.Controllers
             }
         }
 
+
+        public JsonResult consultarReservas(string time){
+            //dar formato de DataTime a time 2022-04-22
+            
+            var res = reservasModel.ReservasPorFecha(time);
+            return Json(res);
+        }
     }
 }

@@ -47,7 +47,7 @@
             <div class="d-flex flex-column justify-content-center ml-lg-auto mr-lg-5 col-lg-5 col-md-6 col-12">
                 <h2 class="mb-3 text-white" data-aos="fade-up">NUEVO EN GOKARTS CR?</h2>
 
-                <h6 class="mb-4 text-white"  data-aos="fade-up">Inscribete Gratis!!</h6>
+                <h6 class="mb-4 text-white" data-aos="fade-up">Inscribete Gratis!!</h6>
 
 
                 <a href="#" class="btn custom-btn bg-color mt-3" data-aos="fade-up" data-aos-delay="300" data-bs-toggle="modal" data-bs-target="#membershipForm">Registrate Hoy!</a>
@@ -151,6 +151,8 @@
                                 <span><strong>Pista: </strong>@paquete.nombrePista</span>
 
                                 <span class="class-price">₡@paquete.costo</span>
+
+                                <button class="btn custom-btn bg-color mt-3" data-bs-toggle="modal" data-bs-target="#carritoModal">Comprar</button>
 
 
                             </div>
@@ -408,7 +410,6 @@
                 <h2 class="modal-title">Formulario de Registro</h2>
 
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                   
                 </button>
             </div>
 
@@ -506,6 +507,74 @@
         </div>
     </div>
 
+</div>
 
+@*    ModalCarrito*@
+
+<div class="modal fade" id="carritoModal">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="">
+
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <h2 class="modal-title">Formulario de Registro</h2>
+
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+
+            <div class="modal-body">
+              
+                    <div class="row gx-2">
+
+                        <div class="col">
+                            <div>
+                                <label class="text-center">Fecha</label>
+                             @Html.TextBox("Fecha","",
+                            new
+                            {
+                            @class="form-control",
+                            @id="Fecha"
+                            })
+                            </div>
+                                @Html.TextBox("Cedula","",
+                            new
+                            {
+                            @class="form-control",
+                            @type="number",
+                            @id="Dia"
+                            })
+                            </div>
+                            <div>
+                                <label class="text-center">Nombre</label>
+                                @Html.TextBox("Nombre","",
+                            new
+                            {
+                            @class="form-control",
+                            @type="input",
+                            @id="Tarde"
+                            })
+                            </div>
+                            <div>
+                                <label class="text-center">Primer Apellido</label>
+                                @Html.TextBox("PrimerApellido","",
+                            new
+                            {
+                            @class="form-control",
+                            @type="input",
+                            @id="Noche"
+                            })
+                            <button type="submit"id="btn-evio" onsubmit="ConsultarDispo()"></button>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="modal-footer"></div>
+
+        </div>
+    </div>
+
+</div>
 
 </div>

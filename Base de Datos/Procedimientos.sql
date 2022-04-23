@@ -347,3 +347,61 @@ begin
 	where idPregunta = @idPregunta;
 
 end;
+/*Selecciona toda la tabala Reserva*/
+GO
+CREATE PROCEDURE selectReserva
+AS
+BEGIN
+SELECT [idReserva]
+      ,[fecha]
+      ,[idUsuario]
+      ,[idPaquete]
+  FROM [dbo].[TB_Reserva]
+END
+GO 
+/*Selecciona Reserva por id*/
+GO
+CREATE PROCEDURE selectReservaPorID(@idReserva int)
+AS
+BEGIN
+SELECT [idReserva]
+	  ,[fecha]
+	  ,[idUsuario]
+	  ,[idPaquete]
+  FROM [dbo].[TB_Reserva]
+  WHERE idReserva = @idReserva
+END
+/*Agregar una reserva*/
+GO
+CREATE PROCEDURE agregarReserva(@idUsuario int, @idPaquete int, @fecha date)
+AS
+BEGIN
+INSERT INTO [dbo].[TB_Reserva]
+		   ([idUsuario]
+		   ,[idPaquete]
+		   ,[fecha])
+	 VALUES
+		   (@idUsuario
+		   ,@idPaquete
+		   ,@fecha)
+END
+GO
+/*Selecciona Reserva la fecha coincida ignorando la hora*/
+GO
+CREATE PROCEDURE selectReservaPorFecha(@fecha date)
+AS
+BEGIN
+SELECT [idReserva]
+	  ,[fecha]
+	  ,[idUsuario]
+	  ,[idPaquete]
+  FROM [dbo].[TB_Reserva]
+  WHERE DATEPART(dd, fecha) = DATEPART(dd, @fecha)
+		AND DATEPART(mm, fecha) = DATEPART(mm, @fecha)
+		AND DATEPART(yy, fecha) = DATEPART(yy, @fecha)
+END
+
+
+
+
+

@@ -124,4 +124,24 @@ document.querySelectorAll('.btn-evio').forEach(button => {
 
 });
 
+//usando jquery 
+//Cuando el boton cosulta es precionado
+//Recoja el variable del campo fecha
+$('#btn-evio').click(function(){
+    //js para buscar el valor del campo fecha
+    var fecha = $('#Fecha').val();
+    //Hacer una ajax consulta a al contolador home con el metodo get y el parametro fecha 
+    $.ajax({
+        url:  '/Home/consultarReservas',
+        type: 'GET',
+        data: {time: fecha},
+        success: function(data){
+            //Si la consulta es exitosa
+            //Mostrar el resultado en el div con id resultado
+            $('#resultado').html(data);
+        }
+    });
+});
+
+
 
