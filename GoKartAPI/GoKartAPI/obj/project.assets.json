@@ -679,19 +679,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\CPU\\.nuget\\packages\\": {}
+    "C:\\Users\\ManuelAlonso\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartAPI\\GoKartAPI\\GoKartAPI.csproj",
+      "projectUniqueName": "G:\\Users\\ManuelAlonso\\Source\\Repos\\GoKartCR-PrograWeb\\GoKartAPI\\GoKartAPI\\GoKartAPI.csproj",
       "projectName": "GoKartAPI",
-      "projectPath": "D:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartAPI\\GoKartAPI\\GoKartAPI.csproj",
-      "packagesPath": "C:\\Users\\CPU\\.nuget\\packages\\",
-      "outputPath": "D:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartAPI\\GoKartAPI\\obj\\",
+      "projectPath": "G:\\Users\\ManuelAlonso\\Source\\Repos\\GoKartCR-PrograWeb\\GoKartAPI\\GoKartAPI\\GoKartAPI.csproj",
+      "packagesPath": "C:\\Users\\ManuelAlonso\\.nuget\\packages\\",
+      "outputPath": "G:\\Users\\ManuelAlonso\\Source\\Repos\\GoKartCR-PrograWeb\\GoKartAPI\\GoKartAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\CPU\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ManuelAlonso\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -699,8 +699,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://nuget.syncfusion.com/nuget_aspnet/nuget/getsyncfusionpackages/aspnet": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
@@ -749,7 +748,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.104\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
