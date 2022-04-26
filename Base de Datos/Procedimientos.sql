@@ -373,7 +373,7 @@ SELECT [idReserva]
 END
 /*Agregar una reserva*/
 GO
-CREATE PROCEDURE agregarReserva(@idUsuario int, @idPaquete int, @fecha date)
+CREATE PROCEDURE agregarReserva(@idUsuario int, @idPaquete int, @fecha datetime)
 AS
 BEGIN
 INSERT INTO [dbo].[TB_Reserva]

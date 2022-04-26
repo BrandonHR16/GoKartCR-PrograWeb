@@ -191,9 +191,17 @@ namespace GoKartCR.Controllers
 
         public JsonResult consultarReservas(string time){
             //dar formato de DataTime a time 2022-04-22
-            
+            try
+            {
             var res = reservasModel.ReservasPorFecha(time);
             return Json(res);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
     }
 }

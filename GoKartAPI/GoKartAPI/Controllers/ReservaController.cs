@@ -111,7 +111,7 @@ namespace GoKartAPI.Controllers
                 respuesta.listaDeReservas.AddRange(res);
                 return respuesta;
             }
-            catch (System.Exception)
+            catch (System.Exception e)
             {
                 ReservaRespuesta respuesta = new ReservaRespuesta();
                 respuesta.idRespuesta = 99;

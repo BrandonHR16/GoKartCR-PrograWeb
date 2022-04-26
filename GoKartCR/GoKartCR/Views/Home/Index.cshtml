@@ -524,57 +524,81 @@
             </div>
 
             <div class="modal-body">
-              
-                    <div class="row gx-2">
 
-                        <div class="col">
-                            <div>
-                                <label class="text-center">Fecha</label>
-                             @Html.TextBox("Fecha","",
+                <div class="row gx-2">
+
+                    <div class="row">
+                        <div class="col-10">
+                            <label class="text-center">Fecha</label>
+                            @Html.TextBox("Fecha","",
                             new
                             {
-                            @class="form-control",
+                            @class="form-control pb-3",
                             @id="Fecha"
                             })
-                            </div>
-                                @Html.TextBox("Cedula","",
-                            new
-                            {
-                            @class="form-control",
-                            @type="number",
-                            @id="Dia"
-                            })
-                            </div>
-                            <div>
-                                <label class="text-center">Nombre</label>
-                                @Html.TextBox("Nombre","",
-                            new
-                            {
-                            @class="form-control",
-                            @type="input",
-                            @id="Tarde"
-                            })
-                            </div>
-                            <div>
-                                <label class="text-center">Primer Apellido</label>
-                                @Html.TextBox("PrimerApellido","",
-                            new
-                            {
-                            @class="form-control",
-                            @type="input",
-                            @id="Noche"
-                            })
-                            <button type="submit"id="btn-evio" onsubmit="ConsultarDispo()"></button>
-                            </div>
+                        </div>
+                        <div class="col-2">
+                            <button type="submit" class="form-control botonResreva btn-evio" id="submit-button" name="submit" onsubmit="ConsultarDispo()">Consultar</button>
                         </div>
                     </div>
+                    <div class="row border m-2">
+
+                        <div class="col-10">
+                            <label class="text-center fs-5">Mañana</label>
+
+                        </div>
+                        <div class="col-2">
+                            @Html.TextBox("Fecha","",
+                            new
+                            {
+                            @type="radio",
+                            @id="mannana"
+                            })
+                        </div>
+                    </div>
+                    <div class="row border m-2">
+
+                        <div class="col-10">
+                            <label class="text-center fs-5">Tarde</label>
+
+                        </div>
+                        <div class="col-2">
+                            @Html.TextBox("Fecha","",
+                            new
+                            {
+                            @class="",
+                            @id="tarde",
+                            @type="radio"
+                            })
+                        </div>
+                    </div>
+                    <div class="row border m-2">
+
+                        <div class="col-10">
+                            <label class="text-center fs-5">Noche</label>
+
+                        </div>
+                        <div class="col-2">
+                            @Html.TextBox("Fecha","",
+                            new
+                            {
+                            @class="",
+                            @id="noche",
+                            @type="radio"
+                            })
+                        </div>
+                    </div>
+                    <div class="row">
+                       <button type="submit" class="form-control" id="submit-button" name="submit">Reservar</button> 
+                    <div>
+                </div>
             </div>
-
-            <div class="modal-footer"></div>
-
         </div>
     </div>
 
+    <div class="modal-footer"></div>
+
+</div>
 </div>
 
 </div>
