@@ -167,15 +167,15 @@ go
 create or alter procedure restablecerContrasennia(@correoUsuario varchar(64), @tokenRecuperacion varchar(128),@nuevaContrasennia varchar(128))
 as
 
-	declare @tokenRecuperacionUsuario varchar(128);
+	declare @@tokenRecuperacionUsuario varchar(128);
 
 begin
 
-	select @tokenRecuperacion = tokenRecuperacion
+	select @@tokenRecuperacionUsuario = tokenRecuperacion
 	from TB_Usuario
 	where correoElectronico = @correoUsuario;
 
-	if(TRIM(@tokenRecuperacion) like TRIM((@tokenRecuperacionUsuario)))
+	if(@@tokenRecuperacionUsuario = @tokenRecuperacion)
 	begin
 
 		update TB_Usuario
