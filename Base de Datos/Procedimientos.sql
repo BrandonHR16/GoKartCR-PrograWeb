@@ -379,6 +379,9 @@ begin
 	where idPregunta = @idPregunta;
 
 end;
+
+/*Reservas*/
+
 /*Selecciona toda la tabala Reserva*/
 GO
 CREATE or alter PROCEDURE selectReserva
@@ -433,7 +436,41 @@ SELECT [idReserva]
 		AND DATEPART(yy, fecha) = DATEPART(yy, @fecha)
 END
 
+/*Get reservas a pagar.*/
 
+go 
+create or alter procedure getReservasaPagar(@idUsuario int)
+as
+begin
 
+	select R.idReserva, R.fecha, P.nombre as "nombrePaquete",
+	P.tiempoOfrecido as "tiempoOfrecidoPaquete", P.descripcion as "descripcionPaquete", 
+	P.cantidadUsuarios as "cantidadUsuariosPaquete", P.costo as "costoPaquete"
+	from TB_Reserva as "R"
+	inner join TB_Paquete as "P"
+	on P.idPaquete = R.idPaquete
+	left join TB_Factura as "F"
+	on F.idReserva = R.idReserva
+	where R.fecha >= GetDate() and
+	R.idUsuario = @idUsuario and F.idReserva is null;
 
+end;
 
+/*Carrito de compras*/
+
+go
+create or alter procedure realizarCompra(@JSONIDReservas varchar(MAX))
+as
+begin
+
+	insert into TB_Factura(idReserva,costoTotal,fecha)	
+	select idReserva, costoTotal, getDate()
+	from OPENJSON(@JSONIDReservas) 
+	with(
+
+		    idReserva int '$.idReserva',  
+			costoTotal decimal(19,2) '$.precioFinal'
+
+	);
+		
+end;

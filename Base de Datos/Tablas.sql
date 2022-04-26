@@ -82,11 +82,9 @@ create table TB_Paquete(
 	idGoKart int not null,
 	idPista int not null,
 
-
 	constraint PK_Paquete_IdPaquete primary key (idPaquete),
 	constraint Paquete_Nombre_Unico unique (nombre),
 	constraint FK_Paquete_IdGoKart foreign key (idGoKart) references TB_Kart(idGoKart)
-
 
 );
 
