@@ -10,7 +10,7 @@ begin
 	values(Upper(@categoriaDelEvento),@mensaje,SYSDATETIME());
 
 end;
-/*Roles de usyarios.*/
+/*Roles de usuarios.*/
 go 
 create or alter procedure selectRolesUsuario
 as
@@ -148,16 +148,48 @@ begin
 
 end;
 
+go
+create or alter procedure generarTokenRecuperacionContrasennia(@correoUsuario varchar(64))
+as
+begin
+
+	update TB_Usuario
+	set tokenRecuperacion = ROUND(RAND() * 10000, 0)
+	where correoElectronico = @correoUsuario;
+
+	select tokenRecuperacion
+	from TB_Usuario
+	where correoElectronico = @correoUsuario;
+
+end;
+
+go
+create or alter procedure restablecerContrasennia(@correoUsuario varchar(64), @tokenRecuperacion varchar(128),@nuevaContrasennia varchar(128))
+as
+
+	declare @@tokenRecuperacionUsuario varchar(128);
+
+begin
+
+	select @@tokenRecuperacionUsuario = tokenRecuperacion
+	from TB_Usuario
+	where correoElectronico = @correoUsuario;
+
+	if(@@tokenRecuperacionUsuario = @tokenRecuperacion)
+	begin
+
+		update TB_Usuario
+		set contrasennia = HASHBYTES('SHA2_256',@nuevaContrasennia), tokenRecuperacion = null
+		where correoElectronico = @correoUsuario;
+
+	end;
+
+end;
+
 /*Pistas*/
 
-USE [GoKart]
 GO
-/****** Object:  StoredProcedure [dbo].[selectPistas]    Script Date: 16/04/2022 11:37:50 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-ALTER   procedure [dbo].[selectPistas]
+create or ALTER procedure selectPistas
 as
 begin
 
@@ -295,7 +327,7 @@ end;
 
 /*Paquete*/
 go
-Create or ALTER   procedure [dbo].[selectPaquetes]
+Create or ALTER   procedure selectPaquetes
 as
 begin
 
@@ -349,7 +381,7 @@ begin
 end;
 /*Selecciona toda la tabala Reserva*/
 GO
-CREATE PROCEDURE selectReserva
+CREATE or alter PROCEDURE selectReserva
 AS
 BEGIN
 SELECT [idReserva]
@@ -361,7 +393,7 @@ END
 GO 
 /*Selecciona Reserva por id*/
 GO
-CREATE PROCEDURE selectReservaPorID(@idReserva int)
+CREATE or alter PROCEDURE selectReservaPorID(@idReserva int)
 AS
 BEGIN
 SELECT [idReserva]
@@ -373,7 +405,7 @@ SELECT [idReserva]
 END
 /*Agregar una reserva*/
 GO
-CREATE PROCEDURE agregarReserva(@idUsuario int, @idPaquete int, @fecha datetime)
+CREATE or alter PROCEDURE agregarReserva(@idUsuario int, @idPaquete int, @fecha date)
 AS
 BEGIN
 INSERT INTO [dbo].[TB_Reserva]
@@ -388,7 +420,7 @@ END
 GO
 /*Selecciona Reserva la fecha coincida ignorando la hora*/
 GO
-CREATE PROCEDURE selectReservaPorFecha(@fecha date)
+CREATE or alter PROCEDURE selectReservaPorFecha(@fecha date)
 AS
 BEGIN
 SELECT [idReserva]
