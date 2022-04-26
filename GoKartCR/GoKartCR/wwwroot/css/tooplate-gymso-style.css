@@ -372,6 +372,16 @@ https://www.tooplate.com/view/2119-gymso-fitness
     position: relative;
   }
 
+.hero2 {
+    margin-top:140px;
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    min-height: 100vh;
+    position: relative;
+}
+
 
   /*---------------------------------------
      CLASS               
@@ -528,6 +538,9 @@ https://www.tooplate.com/view/2119-gymso-fitness
   button#submit-button {
     height: calc(2.25rem + 20px);
   }
+.submit-button2 {
+    height: calc(2.25rem + 20px);
+}
 
   .form-control {
     border-radius: var(--border-radius-small);
@@ -546,6 +559,18 @@ https://www.tooplate.com/view/2119-gymso-fitness
     cursor: pointer;
     transition: all 0.3s ease;
   }
+
+.submit-button2 {
+    background: var(--dark-color);
+    border-color: transparent;
+    color: var(--white-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-button2:hover {
+    background: var(--primary-color);
+}
 
   button#submit-button:hover {
     background: var(--primary-color);

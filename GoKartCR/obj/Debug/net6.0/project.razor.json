@@ -16338,6 +16338,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartCR\\GoKartCR\\Views\\Home\\CarritoCompra.cshtml",
+      "TargetPath": "GoKartCR\\Views\\Home\\CarritoCompra.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartCR\\GoKartCR\\Views\\Administrador\\preguntasFrecuentes.cshtml",
       "TargetPath": "GoKartCR\\Views\\Administrador\\preguntasFrecuentes.cshtml",
       "FileKind": "mvc"

@@ -31,7 +31,7 @@ namespace GoKartAPI.Controllers
                 respuesta.listaDeReservas.Add(reservamodel.BuscarReserva(id, configuracion));
                 return respuesta;
             }
-            catch (System.Exception)
+            catch (System.Exception e)
             {
                 ReservaRespuesta respuesta = new ReservaRespuesta();
                 respuesta.idRespuesta = 99;
@@ -99,11 +99,11 @@ namespace GoKartAPI.Controllers
      //selectReservaPorFecha
         [HttpGet]
         [Route("ReservaporFecha")]
-        public ReservaRespuesta ReservaporFecha(string fecha)
+        public ReservaRespuesta ReservaporFecha(string fecha, int id)
         {
             try
             {
-                var res = reservamodel.ReservasPorFecha(fecha, configuracion);
+                var res = reservamodel.ReservasPorFecha(fecha, id, configuracion);
                 ReservaRespuesta respuesta = new ReservaRespuesta();
                 respuesta.idRespuesta = 0;
                 respuesta.mensaje = "!OK";

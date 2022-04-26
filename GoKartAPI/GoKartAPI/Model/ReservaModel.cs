@@ -55,14 +55,14 @@ namespace GoKartAPI.Model
         } //Fin
 
         //selectReservaPorFecha
-        public List<Reserva> ReservasPorFecha(string fecha, IConfiguration configuracionP)
+        public List<Reserva> ReservasPorFecha(string fecha,int id, IConfiguration configuracionP)
         {
 
             var conexion = new SqlConnection(configuracionP.GetSection("ConnectionStrings:baseDeDatos").Value);
 
             conexion.Open();
 
-            var listaReservas = conexion.Query<Reserva>("selectReservaPorFecha", new { fecha }, commandType: CommandType.StoredProcedure).ToList();
+            var listaReservas = conexion.Query<Reserva>("selectReservaPorFecha", new { fecha,id }, commandType: CommandType.StoredProcedure).ToList();
 
             conexion.Close();
 

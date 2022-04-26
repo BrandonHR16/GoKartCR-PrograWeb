@@ -1,54 +1,88 @@
 ﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 // for details on configuring this project to bundle and minify static web assets.
+var idpaquete;
+
+//cuando la pagian carga
+$(document).ready(function () {
+    $('#Fecha').datepicker();
 
 
-//usando jquery 
-//Cuando el boton cosulta es precionado
-//Recoja el variable del campo fecha
-$('.btn-evio').click(function(){
-    //js para buscar el valor del campo fecha
-    var fecha = $('#Fecha').val();
-    //Hacer una ajax consulta a al contolador home con el metodo get y el parametro fecha 
-    $.ajax({
-        url:  '/Home/consultarReservas',
-        type: 'GET',
-        data: {time: fecha},
-        success: function(data){
-            //deshabilitar
-            //si data.mannna es true 
-            //habilitar todos los botones
-            $("#mannana").prop('disabled', false);
-            $("#tarde").prop('disabled', false);
-            $("#noche").prop('disabled', false);
+    //uncheck
+    var Cbox = document.getElementById("mannana")  
+    var Cbox2 = document.getElementById("tarde")
+    var Cbox3 = document.getElementById("noche")
+    Cbox.checked = false;
+    Cbox2.checked = false;
+    Cbox3.checked = false;
+    
 
-            if(!data[0].mannana){
-                //habilitar
-                $('#mannana').prop('disabled', false);
+
+
+    $('#Fecha').datepicker();
+    $('.paqueteid').click(function (e) {
+        //obtener el id del boton
+        idpaquete = $('.paqueteid').attr('id');
+    })
+
+
+    $('.btn-evio').click(function () {
+        
+        var fecha = $('#Fecha').val();
+
+        $.ajax({
+            url: '/Home/consultarReservas',
+            type: 'GET',
+            data: {
+                time: fecha,
+                id: idpaquete
+            },
+            success: function (data) {
+                var Cbox = document.getElementById("mannana")  
+                var Cbox2 = document.getElementById("tarde")
+                var Cbox3 = document.getElementById("noche")
+                Cbox.checked = false;
+                Cbox2.checked = false;
+                Cbox3.checked = false;
+
+                for (var i = 0; i < data.length; i++) {
+                    if (data[i].mannana) {
+                        $("#mannana").prop('disabled', true);
+                    }
+                    if (data[i].tarde) {
+                        $("#tarde").prop('disabled', true);
+                    }
+                    if (data[i].mannana) {
+                        $("#noche").prop('disabled', true);
+                    }
+                }
             }
-            else{
-                //deshabilitar
-                $('#mannana').prop('disabled', true);
-            }
-            //si data.tarde es true
-            if(!data[1].tarde){
-                //habilitar
-                $('#tarde').prop('disabled', false);
-            }
-            else{
-                //habilitar
-                $('#tarde').prop('disabled', true);
-            }
-            //si data.noche es true
-            if(!data[0].noche){
-                //habilitar
-                $('#noche').prop('disabled', false);
-            }else{
-                //habilitar
-                $('#noche').prop('disabled', true);
-            }
-        }
+        });
     });
+
+    $('.btnreservar').click(function () {
+        // int idPaquete, int idUsuario, string fecha, bool mannana, bool tarde, bool noche
+        var fecha = $('#Fecha').val();
+        var mannana = $('#mannana').is(':checked');
+        var tarde = $('#tarde').is(':checked');
+        var noche = $('#noche').is(':checked');
+        idpaquete = $('.paqueteid').attr('id');
+
+        $.ajax({
+            url: '/Home/CreaReserva',
+            type: 'GET',
+            data: {
+                idPaquete: idpaquete,
+                idUsuario: 1,
+                fecha: fecha,
+                mannana: mannana,
+                tarde: tarde,
+                noche: noche
+            },
+            success: function (data) {
+                alert('aaaaa');
+            }
+        });
+    }
+    );
+
 });
-
-
-

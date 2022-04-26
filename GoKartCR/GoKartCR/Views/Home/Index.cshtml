@@ -131,8 +131,9 @@
                 <h2 data-aos="fade-up" data-aos-delay="200">Nuestros Combos</h2>
             </div>
 
-            @if (Model.Pistas != null)
+            @if (Model.Paquetes != null)
             {
+
                 foreach (Paquete paquete in Model.Paquetes)
                 {
                     var base64 = Convert.ToBase64String(paquete.imagen);
@@ -149,11 +150,19 @@
                                 <span><strong>Duración: </strong>@paquete.tiempoOfrecido</span>
                                 <br>
                                 <span><strong>Pista: </strong>@paquete.nombrePista</span>
+                                <br>
+
+                                @{
+                                    var comprobante = Context.Request.Cookies["Nombre"];
+
+                                    if (comprobante != null)
+                                    {
+                                        <span><button class="btn custom-btn bg-color mt-3 paqueteid" id="@paquete.idPaquete" data-bs-toggle="modal" data-bs-target="#carritoModal">Comprar</button></span>
+
+                                    }
+                                }
 
                                 <span class="class-price">₡@paquete.costo</span>
-
-                                <button class="btn custom-btn bg-color mt-3" data-bs-toggle="modal" data-bs-target="#carritoModal">Comprar</button>
-
 
                             </div>
                         </div>
@@ -533,72 +542,70 @@
                             @Html.TextBox("Fecha","",
                             new
                             {
-                            @class="form-control pb-3",
-                            @id="Fecha"
+                            @class="form-control pb-3 datepicker",
+                            @id="Fecha",
+                            @type="date"
                             })
+                            <div class="col-2">
+                                <button type="button" class="form-control botonResreva btn-evio" id="submit-button" name="submit" onsubmit="ConsultarDispo()">Consultar</button>
+                            </div>
+                            <div class="row border m-2">
+
+                                <div class="col-10">
+                                    <label class="text-center fs-5">Mañana</label>
+
+                                </div>
+                                <div class="col-2">
+                                    @{
+                                        Reserva res = new Reserva();
+
+                                        @Html.CheckBox("mannana", false , new {@class="formcontrol", @id="mannana"})
+                                    }
+                                </div>
+                            </div>
+                            <div class="row border m-2">
+
+                                <div class="col-10">
+                                    <label class="text-center fs-5">Tarde</label>
+
+                                </div>
+                                <div class="col-2">
+                                    @Html.CheckBox("tarde",false,
+                                    new
+                                    {
+                                    @class="",
+                                    @id="tarde",
+                                    })
+                                </div>
+                            </div>
+                            <div class="row border m-2">
+
+                                <div class="col-10">
+                                    <label class="text-center fs-5">Noche</label>
+
+                                </div>
+                                <div class="col-2">
+                                    @Html.CheckBox("noche",false,
+                                    new
+                                    {
+                                    @class="",
+                                    @id="noche",
+                                    @value= "Holaaa"
+                                    })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <button type="submit" class="form-control submit-button2 btnreservar" id="submit-button" name="submit">Reservar</button>
+                                <div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-2">
-                            <button type="submit" class="form-control botonResreva btn-evio" id="submit-button" name="submit" onsubmit="ConsultarDispo()">Consultar</button>
-                        </div>
+                        <div class="modal-footer"></div>
+
                     </div>
-                    <div class="row border m-2">
-
-                        <div class="col-10">
-                            <label class="text-center fs-5">Mañana</label>
-
-                        </div>
-                        <div class="col-2">
-                            @Html.TextBox("Fecha","",
-                            new
-                            {
-                            @type="radio",
-                            @id="mannana"
-                            })
-                        </div>
-                    </div>
-                    <div class="row border m-2">
-
-                        <div class="col-10">
-                            <label class="text-center fs-5">Tarde</label>
-
-                        </div>
-                        <div class="col-2">
-                            @Html.TextBox("Fecha","",
-                            new
-                            {
-                            @class="",
-                            @id="tarde",
-                            @type="radio"
-                            })
-                        </div>
-                    </div>
-                    <div class="row border m-2">
-
-                        <div class="col-10">
-                            <label class="text-center fs-5">Noche</label>
-
-                        </div>
-                        <div class="col-2">
-                            @Html.TextBox("Fecha","",
-                            new
-                            {
-                            @class="",
-                            @id="noche",
-                            @type="radio"
-                            })
-                        </div>
-                    </div>
-                    <div class="row">
-                       <button type="submit" class="form-control" id="submit-button" name="submit">Reservar</button> 
-                    <div>
                 </div>
+
             </div>
         </div>
     </div>
-
-    <div class="modal-footer"></div>
-
-</div>
-</div>
-
 </div>

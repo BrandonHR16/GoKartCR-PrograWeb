@@ -39,7 +39,6 @@ namespace GoKartCR.Models
         //registrar reserva
         public void AgregarReserva(Reserva nuevaReserva)
         {
-
             using (var http = new HttpClient())
             {
                 var response = http.PostAsync("https://localhost:7169/api/Reserva/AgregarReserva", new StringContent(JsonConvert.SerializeObject(nuevaReserva), Encoding.UTF8, "application/json")).Result;
@@ -51,13 +50,13 @@ namespace GoKartCR.Models
         } //Fin
 
         //selectReservaPorFecha
-        public List<Reserva> ReservasPorFecha(string fecha)
+        public List<Reserva> ReservasPorFecha(string fecha, int id)
         {
 
             using (var http = new HttpClient())
             {
 
-                var response = http.GetAsync("https://localhost:7169/api/Reserva/ReservaporFecha?fecha=" + fecha).Result;
+                var response = http.GetAsync("https://localhost:7169/api/Reserva/ReservaporFecha?fecha=" + fecha+"&id="+id).Result;
 
                 var res = JsonConvert.DeserializeObject<ReservaRespuesta>(response.Content.ReadAsStringAsync().Result);
 
@@ -90,7 +89,7 @@ namespace GoKartCR.Models
                         item.tarde = false;
                     }
 
-                    if (item.fecha.Hour >= 16 && item.fecha.Hour <= 18)
+                    if (item.fecha.Hour >= 16 && item.fecha.Hour <= 20)
                     {
                         item.noche = true;
                     }
