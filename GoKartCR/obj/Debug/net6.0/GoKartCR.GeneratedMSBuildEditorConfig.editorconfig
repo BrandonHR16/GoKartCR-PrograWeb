@@ -15,8 +15,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = d:\Universidad\Universidad\Proyectos de Programacion\GoKartCR-PrograWeb\GoKartCR
 build_property._RazorSourceGeneratorDebug = 
 
+[d:/Universidad/Universidad/Proyectos de Programacion/GoKartCR-PrograWeb/GoKartCR/GoKartCR/Views/Administrador/Clientes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = R29LYXJ0Q1JcVmlld3NcQWRtaW5pc3RyYWRvclxDbGllbnRlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [d:/Universidad/Universidad/Proyectos de Programacion/GoKartCR-PrograWeb/GoKartCR/GoKartCR/Views/Administrador/Paquetes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = R29LYXJ0Q1JcVmlld3NcQWRtaW5pc3RyYWRvclxQYXF1ZXRlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Universidad/Universidad/Proyectos de Programacion/GoKartCR-PrograWeb/GoKartCR/GoKartCR/Views/Administrador/Pistas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = R29LYXJ0Q1JcVmlld3NcQWRtaW5pc3RyYWRvclxQaXN0YXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [d:/Universidad/Universidad/Proyectos de Programacion/GoKartCR-PrograWeb/GoKartCR/GoKartCR/Views/Administrador/preguntasFrecuentes.cshtml]

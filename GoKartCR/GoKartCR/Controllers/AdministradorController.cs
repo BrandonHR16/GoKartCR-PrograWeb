@@ -9,6 +9,8 @@ namespace GoKartCR.Controllers
         PreguntasModel preguntasModel = new PreguntasModel();
         PaquetesModel paquetemodel = new PaquetesModel();
         CorreoModel correomodel = new CorreoModel();
+        UsuarioModel usuariomodel = new UsuarioModel();
+        PistasModel pistasmodel = new PistasModel();
 
 
         public IActionResult preguntasFrecuentes()
@@ -81,21 +83,56 @@ namespace GoKartCR.Controllers
             }
 
         }
-        //public int idPaquete { get; set; } = 0;
-        //public string nombre { get; set; } = String.Empty;
-        //public string descripcion { get; set; } = String.Empty;
-        //public int costo { get; set; } = 0;
-        //public TimeSpan tiempoOfrecido { get; set; }
-        //public int cantidadUsuarios { get; set; } = 0;
-        //public byte[] imagen { get; set; }
-        //public int idPista { get; set; } = 0;
-        //public string nombrePista { get; set; } = String.Empty;
 
-        //crre una tabla con los datos de los paquetes
-        //agregar paquete
+
+        public IActionResult Clientes()
+        {
+            return View(usuariomodel.getUsuarios());
+        }
+
+
+        public IActionResult Pistas()
+        {
+            
+            return View(pistasmodel.obtenerPistas());
+        }
+
+        public IActionResult AgregarPista(Pista psita)
+           {
+            try
+            {
+                if (psita.file != null)
+                {
+                    psita.Imagen = new byte[psita.file.Length];
+                    psita.file.OpenReadStream().Read(psita.Imagen, 0, (int)psita.file.Length);
+                }
+
+                var res =  pistasmodel.registrarPista(psita);
+                if (res.idCodigo==0)
+                {
+                    TempData["Mensaje"] = "Se agrego la pista con exito.success";
+                    return RedirectToAction("Pistas", "Administrador");
+                }
+                else if (res.idCodigo == 1)
+                {
+                    TempData["Mensaje"] = "Error al registrar la pista.error";
+                    return RedirectToAction("Pistas", "Administrador");
+                }
+                else
+                {
+                    TempData["Mensaje"] = "Error al conectar con el servidor.error";
+                    return RedirectToAction("Pistas", "Administrador");
+                }
+                return RedirectToAction("Pistas", "Administrador");
+            }
+            catch (Exception)
+            {
+                TempData["Mensaje"] = "Error al conectar con el servidor.error";
+                return RedirectToAction("Pistas", "Administrador");
+            }
+        }
+
         [HttpPost]
-        //obtener el input de la imagen
-      
         public async Task<IActionResult> AgregarPaquete(Paquete paquete)
         {
             try

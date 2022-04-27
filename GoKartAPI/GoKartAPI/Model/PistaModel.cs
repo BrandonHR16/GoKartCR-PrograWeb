@@ -69,6 +69,7 @@ namespace GoKartAPI.Model
                     nuevaPista.nombrePista,
                     nuevaPista.distanciaMetros,
                     nuevaPista.capacidadUsuarios,
+                    nuevaPista.Imagen
                   
 
                 },

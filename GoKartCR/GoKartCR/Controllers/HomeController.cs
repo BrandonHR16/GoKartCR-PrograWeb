@@ -163,6 +163,9 @@ namespace GoKartCR.Controllers
             return res.listaDePaquetes;
 
         }
+
+
+
         //Preguntas
 
         public async Task<IActionResult> enviarPregunta(string Nombre, string Correo, string Mensaje)

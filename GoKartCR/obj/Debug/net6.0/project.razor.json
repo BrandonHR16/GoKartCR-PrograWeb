@@ -16323,6 +16323,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartCR\\GoKartCR\\Views\\Administrador\\Clientes.cshtml",
+      "TargetPath": "GoKartCR\\Views\\Administrador\\Clientes.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartCR\\GoKartCR\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "GoKartCR\\Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
@@ -16350,6 +16355,11 @@
     {
       "FilePath": "d:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartCR\\GoKartCR\\Views\\Administrador\\preguntasFrecuentes.cshtml",
       "TargetPath": "GoKartCR\\Views\\Administrador\\preguntasFrecuentes.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartCR\\GoKartCR\\Views\\Administrador\\Pistas.cshtml",
+      "TargetPath": "GoKartCR\\Views\\Administrador\\Pistas.cshtml",
       "FileKind": "mvc"
     },
     {
