@@ -37,6 +37,9 @@ $(document).ready(function () {
                 id: idpaquete
             },
             success: function (data) {
+                $("#mannana").prop('disabled', false);
+                $("#tarde").prop('disabled', false);
+                $("#noche").prop('disabled', false);
                 var Cbox = document.getElementById("mannana")  
                 var Cbox2 = document.getElementById("tarde")
                 var Cbox3 = document.getElementById("noche")
@@ -51,7 +54,7 @@ $(document).ready(function () {
                     if (data[i].tarde) {
                         $("#tarde").prop('disabled', true);
                     }
-                    if (data[i].mannana) {
+                    if (data[i].noche) {
                         $("#noche").prop('disabled', true);
                     }
                 }
