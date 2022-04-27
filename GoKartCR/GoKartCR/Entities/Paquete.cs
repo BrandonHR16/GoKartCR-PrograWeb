@@ -2,7 +2,7 @@
 {
     public class Paquete
     {
-        public int idPista { get; set; } = 0;
+        public int idPaquete { get; set; } = 0;
         public string nombre { get; set; } = String.Empty;
         public string descripcion { get; set; } = String.Empty;
         public int costo { get; set; } = 0;

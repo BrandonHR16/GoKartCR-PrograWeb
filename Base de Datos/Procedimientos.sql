@@ -331,8 +331,10 @@ Create or ALTER   procedure selectPaquetes
 as
 begin
 
-	select idPista, nombre, descripcion, costo, tiempoOfrecido, cantidadUsuarios, imagen
-	from TB_Paquete;
+	select idPaquete, nombre, descripcion, costo, tiempoOfrecido, cantidadUsuarios, TB_Paquete.imagen, nombrePista
+	from TB_Paquete
+	inner join TB_Pista
+	on TB_Paquete.idPista = TB_Pista.idPista;
 
 end;
 
@@ -434,6 +436,7 @@ SELECT [idReserva]
   WHERE DATEPART(dd, fecha) = DATEPART(dd, @fecha)
 		AND DATEPART(mm, fecha) = DATEPART(mm, @fecha)
 		AND DATEPART(yy, fecha) = DATEPART(yy, @fecha)
+		AND idPaquete = @id;
 END
 
 /*Get reservas a pagar.*/

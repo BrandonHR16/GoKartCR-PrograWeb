@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="~/css/aos.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/tooplate-gymso-style.css" asp-append-version="true">
     <link rel="stylesheet" href="~/css/sweetalert2.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/jquery-ui.css" asp-append-version="true" />
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css' asp-append-version="true">
 
 </head>
@@ -49,7 +50,7 @@
                         <a href="#contact" class="nav-link smoothScroll">Contactentos</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#contact" class="nav-link smoothScroll">
+                        <a asp-controller="Home" asp-action="CarritoCompra" class="nav-link smoothScroll">
                             <img src="~/images/shopping-bag-free-icon-font.png" width="20" height="20" />
                             @{
                                 var Carrito = Context.Request.Cookies["Carrito"];
@@ -94,6 +95,7 @@
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+      <script src="~/js/jquery-ui.js"></script>
     <script src="~/js/site.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
