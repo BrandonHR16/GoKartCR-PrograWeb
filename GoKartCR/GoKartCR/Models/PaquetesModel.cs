@@ -24,7 +24,9 @@ namespace GoKartCR.Models
         {
             using (var http = new HttpClient())
             {
-                var response = http.PutAsync("https://localhost:7169/api/Paquete/actualizarPaquete", new StringContent(JsonConvert.SerializeObject(paquete), Encoding.UTF8, "application/json")).Result;
+                paquete.file = null;
+
+                var response = http.PostAsync("https://localhost:7169/api/Paquete/actualizarPaquete", new StringContent(JsonConvert.SerializeObject(paquete), Encoding.UTF8, "application/json")).Result;
 
                 var paquetes = JsonConvert.DeserializeObject<PaqueteRespuesta>(response.Content.ReadAsStringAsync().Result);
 
@@ -39,6 +41,9 @@ namespace GoKartCR.Models
             //post
             using (var http = new HttpClient())
             {
+
+                paquete.file = null;
+
                 var response = http.PostAsync("https://localhost:7169/api/Paquete/agregarPaquete", new StringContent(JsonConvert.SerializeObject(paquete), Encoding.UTF8, "application/json")).Result;
 
                 var paquetes = JsonConvert.DeserializeObject<PaqueteRespuesta>(response.Content.ReadAsStringAsync().Result);

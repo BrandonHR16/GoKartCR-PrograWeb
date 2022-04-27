@@ -1,4 +1,7 @@
 ﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+
+//const { Alert } = require("./bootstrap.esm");
+
 // for details on configuring this project to bundle and minify static web assets.
 var idpaquete;
 
@@ -82,7 +85,9 @@ $(document).ready(function () {
                 noche: noche
             },
             success: function (data) {
-                alert('aaaaa');
+
+                swal.fire("Reserva agregada.","", "success");
+
             }
         });
     }

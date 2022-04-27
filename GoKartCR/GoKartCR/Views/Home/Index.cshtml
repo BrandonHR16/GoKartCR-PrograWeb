@@ -4,8 +4,6 @@
     ViewData["Title"] = "Home Page";
 }
 
-
-
 <!-- HERO -->
 <section class="hero d-flex flex-column justify-content-center align-items-center" id="home">
 
@@ -99,11 +97,11 @@
             {
                 foreach (Pista pista in Model.Pistas)
                 {
-                    /*var base64 = Convert.ToBase64String(pista.Imagen);
-                    var imgSrc = String.Format("data:image/gif;base64,{0}", base64);*/
+                    var base64 = Convert.ToBase64String(pista.Imagen);
+                    var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
                     <div class="mr-lg-auto mt-5 mt-lg-0 mt-md-0 col-lg-3 col-md-6 col-12" data-aos="fade-up" data-aos-delay="800">
                         <div class="team-thumb">
-                            @*<img src="@imgSrc" class="img-fluid" alt="Trainer">*@
+                            <img src="@imgSrc" class="img-fluid" alt="Trainer">
                             <div class="team-info d-flex flex-column">
                                 <h3>@pista.nombrePista</h3>
                                 <span>Capacidad: @pista.capacidadUsuarios</span>
@@ -136,11 +134,11 @@
 
                 foreach (Paquete paquete in Model.Paquetes)
                 {
-                    /*var base64 = Convert.ToBase64String(paquete.imagen);
-                    var imgSrc = String.Format("data:image/gif;base64,{0}", base64);*/
+                    var base64 = Convert.ToBase64String(paquete.imagen);
+                    var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
                     <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="400">
                         <div class="class-thumb">
-                            @*<img src="@imgSrc" class="img-fluid" alt="Class">*@
+                            <img src="@imgSrc" class="img-fluid" alt="Class">
 
                             <div class="class-info">
                                 <h3 class="mb-1">@paquete.nombre</h3>

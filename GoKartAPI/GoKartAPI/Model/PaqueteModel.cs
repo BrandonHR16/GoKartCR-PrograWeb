@@ -23,19 +23,34 @@ namespace GoKartAPI.Model
              
         } //Fin.
 
-        //actualizarpaquete
-        public Paquete actualizarPaquete(Paquete paquete, IConfiguration configuracionP)
+        public List<Paquete> selectPaquete(IConfiguration configuracionP, int idPaquete)
         {
 
             var conexion = new SqlConnection(configuracionP.GetSection("ConnectionStrings:baseDeDatos").Value);
 
             conexion.Open();
 
-            var paqueteActualizado = conexion.QueryFirstOrDefault<Paquete>("actualizarPaquete", new { paquete.idPaquete, paquete.nombre, paquete.descripcion, paquete.costo, paquete.tiempoOfrecido, paquete.cantidadUsuarios, paquete.imagen, paquete.idPista}, commandType: CommandType.StoredProcedure);
+            var listaPaquete = conexion.Query<Paquete>("selectPaquete", new { idPaquete }, commandType: CommandType.StoredProcedure).ToList();
 
             conexion.Close();
 
-            return paqueteActualizado;
+            return listaPaquete;
+
+        } //Fin.
+
+        //actualizarpaquete
+        public int actualizarPaquete(Paquete paquete, IConfiguration configuracionP)
+        {
+
+            var conexion = new SqlConnection(configuracionP.GetSection("ConnectionStrings:baseDeDatos").Value);
+
+            conexion.Open();
+
+            int estadoActualizado = conexion.Execute("actualizarPaquete", new { paquete.idPaquete, paquete.nombre, paquete.descripcion, paquete.costo, paquete.tiempoOfrecido, paquete.cantidadUsuarios, paquete.imagen, paquete.idPista}, commandType: CommandType.StoredProcedure);
+
+            conexion.Close();
+
+            return estadoActualizado;
 
         } //Fin.
 

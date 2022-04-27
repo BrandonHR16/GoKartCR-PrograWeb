@@ -7,7 +7,7 @@ values('Administrador','Es el admin del negocio'),
 insert into 
 TB_Usuario
 (cedulaUsuario,primerNombre,primerApellido,correoElectronico,contrasennia,telefono,direccionResidencia,idRol)
-values('116180111','Manuel','Quesada','mquesada80111@ufide.ac.cr',HASHBYTES('SHA2_256','WASD'),'87117042','CASA',1);
+values('116180111','Manuel','Quesada','mquesada80111@ufide.ac.cr',HASHBYTES('SHA2_256','WASD'),'87117042','CASA',2);
 
 insert into TB_Kart(nombreKart)
 values('Mario Kart.');
@@ -27,16 +27,5 @@ values(1,1,getDate());
 insert into TB_Reserva(idUsuario,idPaquete,fecha)
 values(1,1,getDate());
 
-select *
-from TB_Kart;
 
-select *
-from TB_Usuario;
 
-select *
-from TB_Factura;
-
-select *
-from TB_Reserva;
-
-delete from TB_Factura;

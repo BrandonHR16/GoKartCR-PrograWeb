@@ -225,14 +225,15 @@ create or alter procedure registrarPista
 
 	@nombrePista varchar(32),
 	@distanciaMetros decimal(6,2),
-	@capacidadUsuarios int
+	@capacidadUsuarios int,
+	@imagen varbinary(MAX)
 
 )
 as
 begin
 
 	insert into TB_Pista(nombrePista,distanciaMetros,capacidadUsuarios,imagen)
-	values(@nombrePista,@distanciaMetros,@capacidadUsuarios,null);
+	values(@nombrePista,@distanciaMetros,@capacidadUsuarios,@imagen);
 
 end;
 
@@ -338,6 +339,20 @@ begin
 
 end;
 
+/*Paquete*/
+go
+Create or ALTER   procedure selectPaquete(@idPaquete int)
+as
+begin
+
+	select idPaquete, nombre, descripcion, costo, tiempoOfrecido, cantidadUsuarios, TB_Paquete.imagen, nombrePista, TB_Paquete.idPista, idGoKart
+	from TB_Paquete
+	inner join TB_Pista
+	on TB_Paquete.idPista = TB_Pista.idPista
+	where idPaquete = @idPaquete;
+
+end;
+
 go
 Create or ALTER   procedure DeletePorIDPaquete(@idPaquete int)
 as
@@ -380,24 +395,30 @@ Create or ALTER   procedure actualizarpaquete
 	@nombre varchar(32),
 	@descripcion varchar(1024),
 	@costo decimal(6,2),
-	@tiempoOfrecido int,
+	@tiempoOfrecido time,
 	@cantidadUsuarios int,
-	@idPista int
+	@idPista int,
 	@imagen varbinary(max)
 
 )
 as
 begin
 
-	update TB_Paquete
-	set nombre = @nombre, descripcion = @descripcion, costo = @costo, tiempoOfrecido = @tiempoOfrecido, cantidadUsuarios = @cantidadUsuarios, idPista = @idPista , imagen = @imagen
-	where idPaquete = @idPaquete;
+
+	if(@imagen is not null)
+	begin
+		update TB_Paquete
+		set nombre = @nombre, descripcion = @descripcion, costo = @costo, tiempoOfrecido = @tiempoOfrecido, cantidadUsuarios = @cantidadUsuarios, idPista = @idPista , imagen = @imagen
+		where idPaquete = @idPaquete;
+	end
+	else
+	begin
+		update TB_Paquete
+		set nombre = @nombre, descripcion = @descripcion, costo = @costo, tiempoOfrecido = @tiempoOfrecido, cantidadUsuarios = @cantidadUsuarios, idPista = @idPista
+		where idPaquete = @idPaquete;
+	end;
 
 end;
-
-
-
-
 
 /*Preguntas Frecuentes*/
 go
@@ -471,7 +492,7 @@ SELECT [idReserva]
 END
 /*Agregar una reserva*/
 GO
-CREATE or alter PROCEDURE agregarReserva(@idUsuario int, @idPaquete int, @fecha date)
+CREATE or alter PROCEDURE agregarReserva(@idUsuario int, @idPaquete int, @fecha datetime)
 AS
 BEGIN
 INSERT INTO [dbo].[TB_Reserva]

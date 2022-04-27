@@ -175,12 +175,12 @@ namespace GoKartCR.Controllers
                 var data = paquetemodel.actualizarPaquete(paquete);
                 if (data.idCodigo == 0)
                 {
-                    TempData["Mensaje"] = "Se agrego el paquete con exito.success";
+                    TempData["Mensaje"] = "Se actualizó el paquete con exito.success";
                     return RedirectToAction("Paquetes", "Administrador");
                 }
                 else
                 {
-                    TempData["Mensaje"] = "Error al agregar el paquete.error";
+                    TempData["Mensaje"] = "Error al actualizar el paquete.error";
                     return RedirectToAction("Paquetes", "Administrador");
                 }
             }

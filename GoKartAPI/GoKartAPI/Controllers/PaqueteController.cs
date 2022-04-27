@@ -66,13 +66,14 @@ namespace GoKartAPI.Controllers
             try
             {
 
-                var paqueteActualizado = paquetemodel.actualizarPaquete(paquete, configuracion);
+                paquetemodel.actualizarPaquete(paquete, configuracion);
+                var paqueteActualizado = paquetemodel.selectPaquete(configuracion, paquete.idPaquete);
 
-                if (paqueteActualizado != null)
+                if (paqueteActualizado.Any())
                 {
 
                     eventoModel.registrarEvento("Paquete", "Paquete actualizado correctamente.", configuracion);
-                    return paquetemodel.armarRespuesta(0, "OK!", new List<Paquete>());
+                    return paquetemodel.armarRespuesta(0, "OK!", paqueteActualizado);
 
                 }
                 else
