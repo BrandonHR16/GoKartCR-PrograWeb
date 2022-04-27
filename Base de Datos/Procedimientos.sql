@@ -10,7 +10,7 @@ begin
 	values(Upper(@categoriaDelEvento),@mensaje,SYSDATETIME());
 
 end;
-/*Roles de usuarios.*/
+/*Roles de usyarios.*/
 go 
 create or alter procedure selectRolesUsuario
 as
@@ -148,48 +148,16 @@ begin
 
 end;
 
-go
-create or alter procedure generarTokenRecuperacionContrasennia(@correoUsuario varchar(64))
-as
-begin
-
-	update TB_Usuario
-	set tokenRecuperacion = ROUND(RAND() * 10000, 0)
-	where correoElectronico = @correoUsuario;
-
-	select tokenRecuperacion
-	from TB_Usuario
-	where correoElectronico = @correoUsuario;
-
-end;
-
-go
-create or alter procedure restablecerContrasennia(@correoUsuario varchar(64), @tokenRecuperacion varchar(128),@nuevaContrasennia varchar(128))
-as
-
-	declare @@tokenRecuperacionUsuario varchar(128);
-
-begin
-
-	select @@tokenRecuperacionUsuario = tokenRecuperacion
-	from TB_Usuario
-	where correoElectronico = @correoUsuario;
-
-	if(@@tokenRecuperacionUsuario = @tokenRecuperacion)
-	begin
-
-		update TB_Usuario
-		set contrasennia = HASHBYTES('SHA2_256',@nuevaContrasennia), tokenRecuperacion = null
-		where correoElectronico = @correoUsuario;
-
-	end;
-
-end;
-
 /*Pistas*/
 
+USE [GoKart]
 GO
-create or ALTER procedure selectPistas
+/****** Object:  StoredProcedure [dbo].[selectPistas]    Script Date: 16/04/2022 11:37:50 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER   procedure [dbo].[selectPistas]
 as
 begin
 
@@ -327,77 +295,14 @@ end;
 
 /*Paquete*/
 go
-Create or ALTER   procedure selectPaquetes
+Create or ALTER   procedure [dbo].[selectPaquetes]
 as
 begin
 
-	select idPaquete, nombre, descripcion, costo, tiempoOfrecido, cantidadUsuarios, TB_Paquete.imagen, nombrePista, TB_Paquete.idPista, idGoKart
-	from TB_Paquete
-	inner join TB_Pista
-	on TB_Paquete.idPista = TB_Pista.idPista;
+	select idPista, nombre, descripcion, costo, tiempoOfrecido, cantidadUsuarios, imagen
+	from TB_Paquete;
 
 end;
-
-go
-Create or ALTER   procedure DeletePorIDPaquete(@idPaquete int)
-as
-begin
-
-	delete from TB_Paquete
-	where idPaquete = @idPaquete;
-
-end;
-
-
-go
-go
-Create or ALTER   procedure agregarpaquete
-(
-
-	@nombre varchar(32),
-	@descripcion varchar(1024),
-	@costo decimal(6,2),
-	@tiempoOfrecido time,
-	@cantidadUsuarios int,
-	@idPista int,
-	@idGoKart int,
-	@imagen varbinary(max)
-
-)
-as
-begin
-
-	insert into TB_Paquete(nombre,descripcion,costo,tiempoOfrecido,cantidadUsuarios,idPista,imagen,idGoKart)
-	values(@nombre,@descripcion,@costo,@tiempoOfrecido,@cantidadUsuarios,@idPista,@imagen,@idGoKart);
-
-end;
-
-go
-Create or ALTER   procedure actualizarpaquete
-(
-
-	@idPaquete int,
-	@nombre varchar(32),
-	@descripcion varchar(1024),
-	@costo decimal(6,2),
-	@tiempoOfrecido int,
-	@cantidadUsuarios int,
-	@idPista int
-	@imagen varbinary(max)
-
-)
-as
-begin
-
-	update TB_Paquete
-	set nombre = @nombre, descripcion = @descripcion, costo = @costo, tiempoOfrecido = @tiempoOfrecido, cantidadUsuarios = @cantidadUsuarios, idPista = @idPista , imagen = @imagen
-	where idPaquete = @idPaquete;
-
-end;
-
-
-
-
 
 /*Preguntas Frecuentes*/
 go
@@ -442,12 +347,9 @@ begin
 	where idPregunta = @idPregunta;
 
 end;
-
-/*Reservas*/
-
 /*Selecciona toda la tabala Reserva*/
 GO
-CREATE or alter PROCEDURE selectReserva
+CREATE PROCEDURE selectReserva
 AS
 BEGIN
 SELECT [idReserva]
@@ -459,7 +361,7 @@ END
 GO 
 /*Selecciona Reserva por id*/
 GO
-CREATE or alter PROCEDURE selectReservaPorID(@idReserva int)
+CREATE PROCEDURE selectReservaPorID(@idReserva int)
 AS
 BEGIN
 SELECT [idReserva]
@@ -471,7 +373,7 @@ SELECT [idReserva]
 END
 /*Agregar una reserva*/
 GO
-CREATE or alter PROCEDURE agregarReserva(@idUsuario int, @idPaquete int, @fecha date)
+CREATE PROCEDURE agregarReserva(@idUsuario int, @idPaquete int, @fecha date)
 AS
 BEGIN
 INSERT INTO [dbo].[TB_Reserva]
@@ -486,7 +388,7 @@ END
 GO
 /*Selecciona Reserva la fecha coincida ignorando la hora*/
 GO
-CREATE or alter PROCEDURE selectReservaPorFecha(@fecha date,@id int)
+CREATE PROCEDURE selectReservaPorFecha(@fecha date)
 AS
 BEGIN
 SELECT [idReserva]
@@ -497,48 +399,9 @@ SELECT [idReserva]
   WHERE DATEPART(dd, fecha) = DATEPART(dd, @fecha)
 		AND DATEPART(mm, fecha) = DATEPART(mm, @fecha)
 		AND DATEPART(yy, fecha) = DATEPART(yy, @fecha)
-		AND idPaquete = @id;
 END
 
-/*Get reservas a pagar.*/
 
-go 
-create or alter procedure getReservasaPagar(@idUsuario int)
-as
 
-	declare @@IVA decimal = 13;
 
-begin
 
-	select R.idReserva, R.fecha, P.nombre as "nombrePaquete",
-	P.tiempoOfrecido as "tiempoOfrecidoPaquete", P.descripcion as "descripcionPaquete", 
-	P.cantidadUsuarios as "cantidadUsuariosPaquete", P.costo as costoPaqueteSinIVA, 
-	(P.costo+ (P.costo*@@IVA)/100) as "costoPaqueteConIVA"
-	from TB_Reserva as "R"
-	inner join TB_Paquete as "P"
-	on P.idPaquete = R.idPaquete
-	left join TB_Factura as "F"
-	on F.idReserva = R.idReserva
-	where R.fecha >= GetDate() and
-	R.idUsuario = @idUsuario and F.idReserva is null;
-
-end;
-
-/*Carrito de compras*/
-
-go
-create or alter procedure realizarCompra(@JSONIDReservas varchar(MAX))
-as
-begin
-
-	insert into TB_Factura(idReserva,costoTotal,fecha)	
-	select idReserva, costoTotal, getDate()
-	from OPENJSON(@JSONIDReservas) 
-	with(
-
-		    idReserva int '$.idReserva',  
-			costoTotal decimal(19,2) '$.precioFinal'
-
-	);
-		
-end;

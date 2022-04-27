@@ -31,7 +31,7 @@ namespace GoKartAPI.Controllers
                 respuesta.listaDeReservas.Add(reservamodel.BuscarReserva(id, configuracion));
                 return respuesta;
             }
-            catch (System.Exception e)
+            catch (System.Exception)
             {
                 ReservaRespuesta respuesta = new ReservaRespuesta();
                 respuesta.idRespuesta = 99;
@@ -99,11 +99,11 @@ namespace GoKartAPI.Controllers
      //selectReservaPorFecha
         [HttpGet]
         [Route("ReservaporFecha")]
-        public ReservaRespuesta ReservaporFecha(string fecha, int id)
+        public ReservaRespuesta ReservaporFecha(string fecha)
         {
             try
             {
-                var res = reservamodel.ReservasPorFecha(fecha, id, configuracion);
+                var res = reservamodel.ReservasPorFecha(fecha, configuracion);
                 ReservaRespuesta respuesta = new ReservaRespuesta();
                 respuesta.idRespuesta = 0;
                 respuesta.mensaje = "!OK";
@@ -111,7 +111,7 @@ namespace GoKartAPI.Controllers
                 respuesta.listaDeReservas.AddRange(res);
                 return respuesta;
             }
-            catch (System.Exception e)
+            catch (System.Exception)
             {
                 ReservaRespuesta respuesta = new ReservaRespuesta();
                 respuesta.idRespuesta = 99;
@@ -121,36 +121,5 @@ namespace GoKartAPI.Controllers
             }
 
         }
-
-        [HttpGet]
-        [Route("ReservasAPagar")]
-        public ReservaAPagarRespuesta getReservasAPagar(int idUsuario)
-        {
-            try
-            {
-                var res = reservamodel.getReservasaPagar(configuracion, idUsuario);
-
-                if (res.Any())
-                {
-
-                    return reservamodel.armarRespuestaReservaAPagar(0, "Ok!", res);
-
-                }
-                else
-                {
-
-                    return reservamodel.armarRespuestaReservaAPagar(1, "No hay reservas por pagar.", res);
-
-                }
-            }
-            catch (System.Exception e)
-            {
-
-                return reservamodel.armarRespuestaReservaAPagar(99, e.Message, new List<ReservaAPagar>());
-
-            }
-
-        }
-
     }
 }

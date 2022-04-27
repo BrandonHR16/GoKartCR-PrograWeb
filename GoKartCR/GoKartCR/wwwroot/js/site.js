@@ -1,91 +1,147 @@
 ﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 // for details on configuring this project to bundle and minify static web assets.
-var idpaquete;
 
-//cuando la pagian carga
-$(document).ready(function () {
-    $('#Fecha').datepicker();
+// Write your JavaScript code.
 
+document.querySelectorAll('.btn-evio').forEach(button => {
 
-    //uncheck
-    var Cbox = document.getElementById("mannana")  
-    var Cbox2 = document.getElementById("tarde")
-    var Cbox3 = document.getElementById("noche")
-    Cbox.checked = false;
-    Cbox2.checked = false;
-    Cbox3.checked = false;
-    
+    let getVar = variable => getComputedStyle(button).getPropertyValue(variable);
 
+    button.addEventListener('click', e => {
 
+        if(!button.classList.contains('active')) {
 
-    $('#Fecha').datepicker();
-    $('.paqueteid').click(function (e) {
-        //obtener el id del boton
-        idpaquete = $('.paqueteid').attr('id');
+            button.classList.add('active');
+
+            gsap.to(button, {
+                keyframes: [{
+                    '--left-wing-first-x': 50,
+                    '--left-wing-first-y': 100,
+                    '--right-wing-second-x': 50,
+                    '--right-wing-second-y': 100,
+                    duration: .2,
+                    onComplete() {
+                        gsap.set(button, {
+                            '--left-wing-first-y': 0,
+                            '--left-wing-second-x': 40,
+                            '--left-wing-second-y': 100,
+                            '--left-wing-third-x': 0,
+                            '--left-wing-third-y': 100,
+                            '--left-body-third-x': 40,
+                            '--right-wing-first-x': 50,
+                            '--right-wing-first-y': 0,
+                            '--right-wing-second-x': 60,
+                            '--right-wing-second-y': 100,
+                            '--right-wing-third-x': 100,
+                            '--right-wing-third-y': 100,
+                            '--right-body-third-x': 60
+                        })
+                    }
+                }, {
+                    '--left-wing-third-x': 20,
+                    '--left-wing-third-y': 90,
+                    '--left-wing-second-y': 90,
+                    '--left-body-third-y': 90,
+                    '--right-wing-third-x': 80,
+                    '--right-wing-third-y': 90,
+                    '--right-body-third-y': 90,
+                    '--right-wing-second-y': 90,
+                    duration: .2
+                }, {
+                    '--rotate': 50,
+                    '--left-wing-third-y': 95,
+                    '--left-wing-third-x': 27,
+                    '--right-body-third-x': 45,
+                    '--right-wing-second-x': 45,
+                    '--right-wing-third-x': 60,
+                    '--right-wing-third-y': 83,
+                    duration: .25
+                }, {
+                    '--rotate': 60,
+                    '--plane-x': -8,
+                    '--plane-y': 40,
+                    duration: .2
+                }, {
+                    '--rotate': 40,
+                    '--plane-x': 45,
+                    '--plane-y': -300,
+                    '--plane-opacity': 0,
+                    duration: .375,
+                    onComplete() {
+                        setTimeout(() => {
+                            button.removeAttribute('style');
+                            gsap.fromTo(button, {
+                                opacity: 0,
+                                y: -8
+                            }, {
+                                opacity: 1,
+                                y: 0,
+                                clearProps: true,
+                                duration: .3,
+                                onComplete() {
+                                    button.classList.remove('active');
+                                }
+                            })
+                        }, 1800)
+                    }
+                }]
+            })
+
+            gsap.to(button, {
+                keyframes: [{
+                    '--text-opacity': 0,
+                    '--border-radius': 0,
+                    '--left-wing-background': getVar('--primary-dark'),
+                    '--right-wing-background': getVar('--primary-dark'),
+                    duration: .11
+                }, {
+                    '--left-wing-background': getVar('--primary'),
+                    '--right-wing-background': getVar('--primary'),
+                    duration: .14
+                }, {
+                    '--left-body-background': getVar('--primary-dark'),
+                    '--right-body-background': getVar('--primary-darkest'),
+                    duration: .25,
+                    delay: .1
+                }, {
+                    '--trails-stroke': 171,
+                    duration: .22,
+                    delay: .22
+                }, {
+                    '--success-opacity': 1,
+                    '--success-x': 0,
+                    duration: .2,
+                    delay: .15
+                }, {
+                    '--success-stroke': 0,
+                    duration: .15
+                }]
+            })
+
+        }
+
     })
 
-
-    $('.btn-evio').click(function () {
-        
-        var fecha = $('#Fecha').val();
-
-        $.ajax({
-            url: '/Home/consultarReservas',
-            type: 'GET',
-            data: {
-                time: fecha,
-                id: idpaquete
-            },
-            success: function (data) {
-                $("#mannana").prop('disabled', false);
-                $("#tarde").prop('disabled', false);
-                $("#noche").prop('disabled', false);
-                var Cbox = document.getElementById("mannana")  
-                var Cbox2 = document.getElementById("tarde")
-                var Cbox3 = document.getElementById("noche")
-                Cbox.checked = false;
-                Cbox2.checked = false;
-                Cbox3.checked = false;
-
-                for (var i = 0; i < data.length; i++) {
-                    if (data[i].mannana) {
-                        $("#mannana").prop('disabled', true);
-                    }
-                    if (data[i].tarde) {
-                        $("#tarde").prop('disabled', true);
-                    }
-                    if (data[i].noche) {
-                        $("#noche").prop('disabled', true);
-                    }
-                }
-            }
-        });
-    });
-
-    $('.btnreservar').click(function () {
-        // int idPaquete, int idUsuario, string fecha, bool mannana, bool tarde, bool noche
-        var fecha = $('#Fecha').val();
-        var mannana = $('#mannana').is(':checked');
-        var tarde = $('#tarde').is(':checked');
-        var noche = $('#noche').is(':checked');
-        idpaquete = $('.paqueteid').attr('id');
-
-        $.ajax({
-            url: '/Home/CreaReserva',
-            type: 'GET',
-            data: {
-                idPaquete: idpaquete,
-                idUsuario: 1,
-                fecha: fecha,
-                mannana: mannana,
-                tarde: tarde,
-                noche: noche
-            },
-            success: function (data) {
-                alert('aaaaa');
-            }
-        });
-    }
-    );
-
 });
+
+//usando jquery 
+//Cuando el boton cosulta es precionado
+//Recoja el variable del campo fecha
+$('#btn-evio').click(function(){
+    //js para buscar el valor del campo fecha
+    var fecha = $('#Fecha').val();
+    //Hacer una ajax consulta a al contolador home con el metodo get y el parametro fecha 
+    $.ajax({
+        url:  '/Home/consultarReservas',
+        type: 'GET',
+        data: {time: fecha},
+        success: function(data){
+            //Si la consulta es exitosa
+            //Mostrar el resultado en el div con id resultado
+            $('#resultado').html(data);
+        }
+    });
+});
+
+
+

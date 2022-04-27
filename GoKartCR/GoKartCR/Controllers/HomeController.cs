@@ -1,10 +1,10 @@
-
 ﻿using GoKartCR.Entities;
 using GoKartCR.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Diagnostics;
 using Microsoft.JSInterop;
+
 using System.Dynamic;
 using System.Globalization;
 
@@ -34,13 +34,7 @@ namespace GoKartCR.Controllers
             mymodel.Pistas = GetPistas();
             mymodel.Eventos = GetEvento();
             mymodel.Paquetes = GetPaquetes();
-            mymodel.Reserva = new Reserva();
             return View(mymodel);
-        }
-
-                public IActionResult CarritoCompra()
-        {
-            return View();
         }
 
         public IActionResult Privacy()
@@ -69,7 +63,6 @@ namespace GoKartCR.Controllers
                         {
                             Response.Cookies.Append("Rol", res.listaUsuarios[0].idRol.ToString(), new Microsoft.AspNetCore.Http.CookieOptions { Expires = DateTime.Now.AddMinutes(10) });
                             Response.Cookies.Append("Nombre", res.listaUsuarios[0].primerNombre, new Microsoft.AspNetCore.Http.CookieOptions { Expires = DateTime.Now.AddMinutes(10) });
-                            Response.Cookies.Append("IdUser", res.listaUsuarios[0].idUsuario.ToString(), new Microsoft.AspNetCore.Http.CookieOptions { Expires = DateTime.Now.AddMinutes(10) });
                             TempData["Mensaje"] = "Inicio sesion correctamente.success";
                             return RedirectToAction("Index", "Home");
                         }
@@ -176,8 +169,6 @@ namespace GoKartCR.Controllers
             return res.listaEventos;
 
         }
-
-
     
 
 
@@ -219,59 +210,5 @@ namespace GoKartCR.Controllers
             var res = reservasModel.ReservasPorFecha(time);
             return Json(res);
         }
-        public JsonResult consultarReservas(string time, int id){
-            //dar formato de DataTime a time 2022-04-22
-            try
-            {
-            var res = reservasModel.ReservasPorFecha(time, id);
-            return Json(res);
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-
-        }
-
-         DateTime fechaReserva = DateTime.ParseExact(fecha, "yyyy-MM-dd", CultureInfo.InvariantCulture);
-
-            try
-            {
-                if (mannana == true)
-                {
-                    //establecer add 9 am 
-                    fechaReserva = fechaReserva.AddHours(9);
-                }
-                else if (tarde == true)
-                {
-
-                   fechaReserva = fechaReserva.AddHours(13);
-                }
-                else if (noche == true)
-                {
-
-                    fechaReserva = fechaReserva.AddHours(20);
-                }
-                string idUsuarioweb = Request.Cookies["IdUser"];
-                idUsuario = Int32.Parse(idUsuarioweb);
-                Reserva res = new Reserva();
-                res.idPaquete = idPaquete;
-                res.idUsuario = idUsuario;
-                res.fecha = fechaReserva;
-                res.mannana = mannana;
-                res.tarde = tarde;
-                res.noche = noche;
-                reservasModel.AgregarReserva(res);
-
-                }
-            catch (Exception e)
-            {
-
-                throw;
-            }
-
-        }
-
     }
 }
