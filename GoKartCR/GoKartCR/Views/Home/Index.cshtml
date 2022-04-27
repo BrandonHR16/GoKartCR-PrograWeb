@@ -1,5 +1,6 @@
 ﻿@using GoKartCR.Entities
 @model dynamic
+
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -96,6 +97,7 @@
             </div>
             @* pist1*@
             @if (Model.Pistas != null)
+
             {
                 foreach (Pista pista in Model.Pistas)
                 {
@@ -114,6 +116,7 @@
                 }
             }
         </div>
+
 
     </div>
     </div>
@@ -135,11 +138,11 @@
             {
                 foreach (Paquete paquete in Model.Paquetes)
                 {
-                    var base64 = Convert.ToBase64String(paquete.imagen);
-                    var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                    // var base64 = Convert.ToBase64String(paquete.imagen);
+                    //var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
                     <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="400">
                         <div class="class-thumb">
-                            <img src="@imgSrc" class="img-fluid" alt="Class">
+                            @*<img src="@imgSrc" class="img-fluid" alt="Class">*@
 
                             <div class="class-info">
                                 <h3 class="mb-1">@paquete.nombre</h3>
@@ -181,98 +184,286 @@
 
             <div class="col-lg-12 py-5 col-md-12 col-12">
                 <table class="table table-bordered table-responsive schedule-table" data-aos="fade-up" data-aos-delay="300">
+                 
+                             
 
                     <thead class="thead-light">
-                    <th><i class="fa fa-calendar"></i></th>
-                    <th>Mon</th>
-                    <th>Tue</th>
-                    <th>Wed</th>
-                    <th>Thu</th>
-                    <th>Fri</th>
-                    <th>Sat</th>
+                        <th><i class="fa fa-calendar"></i></th>
+                        <th>Martes</th>
+                        <th>Miercoles</th>
+                        <th>Jueves</th>
+                        <th>Viernes</th>
+                        <th>Sabado</th>
+                        <th>Domingo</th>
                     </thead>
 
+                   
                     <tbody>
+                          
+
+                    
                         <tr>
-                            <td><small>7:00 am</small></td>
+                            <td><small>Día</small></td>
+                            
                             <td>
-                                <strong>Cardio</strong>
-                                <span>7:00 am - 9:00 am</span>
+                                 @if (Model.Eventos != null)
+                    {
+                                    foreach (Tabla_Eventos evento in Model.Eventos )
+                        {
+                            @if (evento.hora.Hour < 12)
+                                {
+                            
+                       @if (evento.dia == "Tuesday"){
+                                <span>Reservado por:</span> <!-- Martes dia -->
+                                <strong>@evento.primerNombre</strong>
+                    }}}}
                             </td>
                             <td>
-                                <strong>Power Fitness</strong>
-                                <span>7:00 am - 9:00 am</span>
+                                  @if (Model.Eventos != null)
+                    {
+                                    foreach (Tabla_Eventos evento in Model.Eventos )
+                        {
+                            @if (evento.hora.Hour < 12)
+                                {
+                        @if (evento.dia == "Wednesday"){
+                                <span>Reservado por:</span> <!-- Miercoles dia -->
+                                <strong>@evento.primerNombre</strong>
+                    }}}}
                             </td>
-                            <td></td>
-                            <td></td>
+                            <td> 
+                                 @if (Model.Eventos != null)
+                    {
+                                    foreach (Tabla_Eventos evento in Model.Eventos )
+                        {
+                            @if (evento.hora.Hour < 12)
+                                {
+                        @if (evento.dia == "Thursday"){
+                                <span>Reservado por:</span> <!-- Jueves dia -->
+                                <strong>@evento.primerNombre</strong>
+                        }}}}        
+                            </td>
+                    
+                 
                             <td>
-                                <strong>Yoga Section</strong>
-                                <span>7:00 am - 9:00 am</span>
+                                 @if (Model.Eventos != null)
+                    {
+                                    foreach (Tabla_Eventos evento in Model.Eventos )
+                        {
+                            @if (evento.hora.Hour < 12)
+                                {
+                        @if (evento.dia == "Friday"){
+                                <span>Reservado por:</span> <!-- Viernes dia -->
+                                <strong>@evento.primerNombre</strong>
+                        }}}}
                             </td>
+                            <td>
+                                 @if (Model.Eventos != null)
+                    {
+                                    foreach (Tabla_Eventos evento in Model.Eventos )
+                        {
+                              @if (evento.hora.Hour < 12)
+                                {
+                            
+                               @if  (evento.dia == "Saturday"){
+                                 <span>Reservado por:</span> <!-- Sabado dia -->
+                                <strong>@evento.primerNombre</strong>
+                    }}}}
+                            </td>
+                    
+                              <td>
+                              
+                                    @if (Model.Eventos != null)
+                                    {
+                                        foreach (Tabla_Eventos evento in Model.Eventos)
+                                        {
+                                              @if (evento.hora.Hour < 12)
+                                {
+                                            @if (evento.dia == "Sunday")
+                                            {
+                                                <span>Reservado por:</span> <!-- Domingo dia -->
+                                                <strong>@evento.primerNombre</strong>
+                                            }
+
+                                        }
+                                    }
+
+                                }
+                            </td>
+                    
                         </tr>
 
                         <tr>
-                            <td><small>9:00 am</small></td>
-                            <td></td>
-                            <td></td>
+                            <td><small>Tarde</small></td>
+                         
                             <td>
-                                <strong>Boxing</strong>
-                                <span>8:00 am - 9:00 am</span>
+                                @if (Model.Eventos != null) {
+                                    foreach (Tabla_Eventos evento in Model.Eventos ) {
+                            @if (evento.hora.Hour > 12 && evento.hora.Hour < 15) {
+                                 @if (evento.dia == "Tuesday"){
+                                     <span>Reservado por:</span>
+                                <strong>@evento.primerNombre</strong>
+                              
+                         }}}}
                             </td>
                             <td>
-                                <strong>Areobic</strong>
-                                <span>8:00 am - 9:00 am</span>
-                            </td>
-                            <td></td>
-                            <td>
-                                <strong>Cardio</strong>
-                                <span>8:00 am - 9:00 am</span>
-                            </td>
-                        </tr>
+                                @if (Model.Eventos != null){
+                                    foreach (Tabla_Eventos evento in Model.Eventos){
+                                
+                                        @if (evento.hora.Hour > 12 && evento.hora.Hour < 15){
+                                     @if (evento.dia == "Wednesday"){
+                                         <span>Reservado por:</span>
+                                            <strong>@evento.primerNombre</strong>
+                                            
+                                        }
 
-                        <tr>
-                            <td><small>11:00 am</small></td>
-                            <td></td>
-                            <td>
-                                <strong>Boxing</strong>
-                                <span>11:00 am - 2:00 pm</span>
+                                    }}
+                                }
                             </td>
+                         
                             <td>
-                                <strong>Areobic</strong>
-                                <span>11:30 am - 3:30 pm</span>
-                            </td>
-                            <td></td>
-                            <td>
-                                <strong>Body work</strong>
-                                <span>11:50 am - 5:20 pm</span>
-                            </td>
-                        </tr>
+                                @if (Model.Eventos != null)
+                                {
+                                    foreach (Tabla_Eventos evento in Model.Eventos)
+                                    {
+                                        @if (evento.hora.Hour > 12 && evento.hora.Hour < 15)
+                                        {
+                                          @if (evento.dia == "Thursday"){
+                                              <span>Reservado por:</span>
+                                            <strong>@evento.primerNombre</strong>
+                                           
+                                        }
 
-                        <tr>
-                            <td><small>2:00 pm</small></td>
-                            <td>
-                                <strong>Boxing</strong>
-                                <span>2:00 pm - 4:00 pm</span>
+                                    }}}
                             </td>
                             <td>
-                                <strong>Power lifting</strong>
-                                <span>3:00 pm - 6:00 pm</span>
+                                @if (Model.Eventos != null){
+                                    foreach (Tabla_Eventos evento in Model.Eventos)
+                                    {
+                                        @if (evento.hora.Hour > 12 && evento.hora.Hour < 15)
+                                        {
+                                         @if (evento.dia == "Friday"){
+                                             <span>Reservado por:</span>
+                                            <strong>@evento.primerNombre</strong>
+                                            
+                                        }
+
+                                    }}
+                                }
                             </td>
-                            <td></td>
                             <td>
-                                <strong>Cardio</strong>
-                                <span>6:00 pm - 9:00 pm</span>
+                                   @if (Model.Eventos != null)
+                                {
+                                    foreach (Tabla_Eventos evento in Model.Eventos)
+                                    {
+                                        @if (evento.hora.Hour > 12 && evento.hora.Hour < 15)
+                                        {
+                                            @if (evento.dia == "Saturday")
+                                            {
+                                                <span>Reservado por:</span>
+                                                <strong>@evento.primerNombre</strong>
+                                              
+                                            }
+
+                                        }
+
+                                    }}
                             </td>
-                            <td></td>
                             <td>
-                                <strong>Crossfit</strong>
-                                <span>5:00 pm - 7:00 pm</span>
+                                 @if (Model.Eventos != null)
+                                {
+                                    foreach (Tabla_Eventos evento in Model.Eventos)
+                                    {
+                                        @if (evento.hora.Hour > 12 && evento.hora.Hour < 15)
+                                        {
+                                            @if (evento.dia == "Sunday")
+                                            {
+                                                <span>Reservado por:</span>
+                                <strong>@evento.primerNombre</strong>
+                             
+                                }}}}
                             </td>
                         </tr>
+                                            
+                        <tr>
+                            <td><small>Noche</small></td>
+                          
+                            <td>
+                                @if (Model.Eventos != null)
+                                {
+                                    foreach (Tabla_Eventos evento in Model.Eventos)
+                                    {
+                                        @if (evento.hora.Hour > 15)
+                                        {
+                                            @if (evento.dia == "Tuesday")
+                                            {
+                                                <span>Reservado por:</span>
+                                                <strong>@evento.primerNombre</strong>
+                                              
+                                            }
+
+                                        }
+
+                                    }}
+                            </td>
+                            <td>
+                                  @if (Model.Eventos != null) {
+                                    foreach (Tabla_Eventos evento in Model.Eventos ) {
+                            @if (evento.hora.Hour > 15) {
+                                 @if (evento.dia == "Wednesday"){
+                                     <span>Reservado por:</span>
+                                <strong>@evento.primerNombre</strong>
+                             
+                                 }}}}
+                            </td>
+                           
+                            <td>
+                                  @if (Model.Eventos != null) {
+                                    foreach (Tabla_Eventos evento in Model.Eventos ) {
+                            @if (evento.hora.Hour > 15) {
+                                 @if (evento.dia == "Thursday"){
+                                     <span>Reservado por:</span>
+                                <strong>@evento.primerNombre</strong>
+                              
+                                 }}}}
+                            </td>
+                            <td>
+                                  @if (Model.Eventos != null) {
+                                    foreach (Tabla_Eventos evento in Model.Eventos ) {
+                            @if (evento.hora.Hour > 15) {
+                                 @if (evento.dia == "Friday"){
+                                     <span>Reservado por:</span>
+                                <strong>@evento.primerNombre</strong>
+                              
+                                 }}}}
+                            </td>
+                            <td>
+                                  @if (Model.Eventos != null) {
+                                    foreach (Tabla_Eventos evento in Model.Eventos ) {
+                            @if (evento.hora.Hour > 15) {
+                                 @if (evento.dia == "Saturday"){
+                                     <span>Reservado por:</span>
+                                <strong>@evento.primerNombre</strong>
+                               
+                                 }}}}
+                            </td>
+                            <td>
+                                  @if (Model.Eventos != null) {
+                                    foreach (Tabla_Eventos evento in Model.Eventos ) {
+                            @if (evento.hora.Hour > 15) {
+                                 @if (evento.dia == "Sunday"){
+                                     <span>Reservado por:</span>
+                                <strong>@evento.primerNombre</strong>
+                           
+                                 }}}}
+                            </td>
+                        </tr>
+                         } }
                     </tbody>
+                        
                 </table>
+           
             </div>
-
+            
         </div>
     </div>
 </section>

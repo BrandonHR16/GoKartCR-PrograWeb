@@ -1,0 +1,57 @@
+﻿@using GoKartCR.Entities
+@model dynamic
+
+@{
+    Layout = "_LayoutAdmin";
+}
+
+<div class="container">
+    <div class="text-xl-center fs-2 ">Usuarios</div>
+    <div class="card">
+        <div class="card-body">
+            <table class="" id="TablaUsuario">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Primer Apellido</th>
+                        <th>Segundo Apellido</th>
+                        <th>Cedula</th>
+                        <th>Correo</th>
+                        <th>Rol</th>
+                        <th>Acción</th>
+                    
+                    </tr>
+          
+                </thead>
+                <tbody>
+                    @if( Model != null){
+                     @foreach (Usuario user in Model.listaUsuarios)
+                    {
+                        <tr>
+                        <td>@user.idUsuario</td>
+                        <td>@user.primerNombre</td>
+                        <td>@user.primerApellido</td>
+                        <td>@user.segundoApellido</td>
+                        <td>@user.cedulaUsuario</td>
+                        <td>@user.correoElectronico</td>
+                        <td>@user.idRol</td>
+                          @if( user.idRol == 2){
+                        <td><button id="btnCambiarRol" class="btn btnResponder btnCambiarRol">Asignar Administardor</button></td>
+                      
+                            }  
+                            @if( user.idRol == 1){
+                        <td> Administrador</td>
+                      
+                            }  
+                    </tr>
+                    }                       
+        }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
