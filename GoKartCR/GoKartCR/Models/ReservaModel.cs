@@ -1,6 +1,7 @@
 ﻿using GoKartCR.Entities;
 using Newtonsoft.Json;
 using System.Text;
+using static GoKartCR.Entities.Reserva;
 
 namespace GoKartCR.Models
 {
@@ -8,7 +9,7 @@ namespace GoKartCR.Models
     {
 
         //reserva por su id
-        public Reserva BuscarReserva(int id, IConfiguration configuracionP)
+        public Reserva BuscarReserva(int id)
         {
             using (var http = new HttpClient())
             {
@@ -22,7 +23,7 @@ namespace GoKartCR.Models
         } //Fin
 
         //get all reservas
-        public List<Reserva> Reservas(IConfiguration configuracionP)
+        public List<Reserva> Reservas()
         {
             using (var http = new HttpClient())
             {
@@ -36,9 +37,8 @@ namespace GoKartCR.Models
         } //Fin
 
         //registrar reserva
-        public void AgregarReserva(Reserva nuevaReserva, IConfiguration configuracionP)
+        public void AgregarReserva(Reserva nuevaReserva)
         {
-
             using (var http = new HttpClient())
             {
                 var response = http.PostAsync("https://localhost:7169/api/Reserva/AgregarReserva", new StringContent(JsonConvert.SerializeObject(nuevaReserva), Encoding.UTF8, "application/json")).Result;
@@ -50,22 +50,26 @@ namespace GoKartCR.Models
         } //Fin
 
         //selectReservaPorFecha
-        public List<Reserva> ReservasPorFecha(string fecha)
+        public List<Reserva> ReservasPorFecha(string fecha, int id)
         {
 
             using (var http = new HttpClient())
             {
 
-                var response = http.PostAsync("https://localhost:7169/api/Reserva/https://localhost:7169/api/Reserva/ReservaporFecha?fecha="+fecha, new StringContent(JsonConvert.SerializeObject(fecha), Encoding.UTF8, "application/json")).Result;
+                var response = http.GetAsync("https://localhost:7169/api/Reserva/ReservaporFecha?fecha=" + fecha+"&id="+id).Result;
 
-                var res = JsonConvert.DeserializeObject<List<Reserva>>(response.Content.ReadAsStringAsync().Result);
+                var res = JsonConvert.DeserializeObject<ReservaRespuesta>(response.Content.ReadAsStringAsync().Result);
 
                 //si la hora de la reserva es entre las 9am y las 12md se le asigna true a la vasriable mannana
                 //si la hora de la reserva es entre las 12md y las 3pm se le asigna true a la vasriable tarde
                 //si la hora de la reserva es entre las 3pm y las 6pm se le asigna true a la vasriable noche
+                if (res.listaDeReservas == null)
+                {
+                    return res.listaDeReservas;
+                }
 
-                if(res.Count > 0) {                 
-                    foreach (var item in res)
+                if(res.listaDeReservas.Count > 0) {                 
+                    foreach (var item in res.listaDeReservas)
                 {
                     if (item.fecha.Hour >= 9 && item.fecha.Hour <= 12)
                     {
@@ -76,7 +80,7 @@ namespace GoKartCR.Models
                         item.mannana = false;
                     }
 
-                    if (item.fecha.Hour >= 12 && item.fecha.Hour <= 15)
+                    if (item.fecha.Hour >= 13 && item.fecha.Hour <= 15)
                     {
                         item.tarde = true;
                     }
@@ -85,7 +89,7 @@ namespace GoKartCR.Models
                         item.tarde = false;
                     }
 
-                    if (item.fecha.Hour >= 15 && item.fecha.Hour <= 18)
+                    if (item.fecha.Hour >= 16 && item.fecha.Hour <= 20)
                     {
                         item.noche = true;
                     }
@@ -96,11 +100,36 @@ namespace GoKartCR.Models
                 }
                 }
 
-                return res;
+                return res.listaDeReservas;
             }
-
 
         } //Fin
 
-    }
-}
+        public ReservaAPagarRespuesta getReservasaPagar(int idUsuario)
+        {
+            using (var http = new HttpClient())
+            {
+                var response = http.GetAsync("https://localhost:7169/api/Reserva/ReservasAPagar?idUsuario="+idUsuario).Result;
+
+                var res = JsonConvert.DeserializeObject<ReservaAPagarRespuesta>(response.Content.ReadAsStringAsync().Result);
+
+                if (response.IsSuccessStatusCode)
+                {
+
+                    return res;
+
+                }
+                else
+                {
+
+                    return null;
+
+                }
+         
+            } //Fin del using.
+
+        } //Fin de getReservasaPagar
+
+    } //Fin de la clase.
+
+} //Fin del namespace. 
