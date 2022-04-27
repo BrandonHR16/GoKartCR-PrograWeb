@@ -1,4 +1,6 @@
-﻿$(document).ready(function(){
+﻿
+
+$(document).ready(function(){
    
 
     $(".btnEnviar").click(function (e) {
@@ -18,7 +20,39 @@
 
     });
 
+    $('.btnCambiarRol').click(function (e) {
+        e.preventDefault();
+        let row = $(this).closest('tr');
+        let id = row.find('td:eq(0)').text();
+        $.ajax({
+            url: '/Administrador/ActualizarRol',
+            type: 'GET',
+            data: {
+                idUsuario: id
+            },
+            success: function (data) {
+                location.reload();
+            }
+
+
+        })
+
+    });
+
     $("#TablaPreguntas").DataTable({
+
+        language: {
+            url: 'https://cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json'
+        },
+        pageLength: 8,
+        "order": [[0, "desc"]],
+        dom: 'Bfrtip',
+        buttons: [
+
+        ]
+    });
+
+    $("#TablaUsuario").DataTable({
 
         language: {
             url: 'https://cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json'
