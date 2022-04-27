@@ -8,12 +8,18 @@ namespace GoKartCR.Controllers
     {
         PreguntasModel preguntasModel = new PreguntasModel();
         CorreoModel correomodel = new CorreoModel();
+        RegistrarAdminModel registAdminModel = new RegistrarAdminModel();
 
 
         public IActionResult preguntasFrecuentes()
         {
 
             return View(GetPreguntas());
+        }
+        public IActionResult AgregarAdministrador()
+        {
+
+            return View(GetUsuarios());
         }
 
         [HttpGet]
@@ -23,6 +29,21 @@ namespace GoKartCR.Controllers
             {
             var data = preguntasModel.GetPreguntas().Result;
             return (data);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+        [HttpGet]
+        public UsuarioRespuesta GetUsuarios()
+        {
+            try
+            {
+                var data = registAdminModel.Getusuarios().Result;
+                return (data);
             }
             catch (Exception)
             {
@@ -52,6 +73,28 @@ namespace GoKartCR.Controllers
                     TempData["Mensaje"] = "Error al enviar el correo.error";
                     return RedirectToAction("preguntasFrecuentes", "Administrador");
                 }
+
+            }
+            catch (Exception e)
+            {
+
+                TempData["Mensaje"] = "Error al conectar con el servidor.error";
+                return RedirectToAction("preguntasFrecuentes", "Administrador");
+            }
+
+        }
+        public async Task<IActionResult> ActualizarRol(int idUsuario)
+        {
+            try
+            {
+                
+
+                var res = registAdminModel.ActualizarRol(idUsuario);
+            
+                    TempData["Mensaje"] = "Se cambió el Rol con exito.success";
+                    return RedirectToAction("AgregarAdministrador", "Administrador");
+              
+            
 
             }
             catch (Exception e)

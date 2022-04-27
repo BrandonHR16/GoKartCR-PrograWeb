@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Diagnostics;
 using Microsoft.JSInterop;
-using CurrieTechnologies.Razor.SweetAlert2;
+
 using System.Dynamic;
 using System.Globalization;
 
@@ -14,9 +14,12 @@ namespace GoKartCR.Controllers
     {
         UsuarioModel usuariomodel = new UsuarioModel();
         PistasModel pistasModel = new PistasModel();
+        Tabla_EventosModel eventosModel = new Tabla_EventosModel();
         PaquetesModel paqueteModel = new PaquetesModel();
         PreguntasModel preguntaModel = new PreguntasModel();
         ReservaModel reservasModel = new ReservaModel();
+        RegistrarAdminModel regisAdminModel = new RegistrarAdminModel();
+     
 
         dynamic mymodel = new ExpandoObject();
         private readonly ILogger<HomeController> _logger;
@@ -29,6 +32,7 @@ namespace GoKartCR.Controllers
         public IActionResult Index()
         {
             mymodel.Pistas = GetPistas();
+            mymodel.Eventos = GetEvento();
             mymodel.Paquetes = GetPaquetes();
             return View(mymodel);
         }
@@ -157,6 +161,17 @@ namespace GoKartCR.Controllers
             return res.listaDePaquetes;
 
         }
+
+
+        public List<Tabla_Eventos> GetEvento()
+        {
+            TablaRespuesta res = eventosModel.obtenerEvento();
+            return res.listaEventos;
+
+        }
+    
+
+
         //Preguntas
 
         public async Task<IActionResult> enviarPregunta(string Nombre, string Correo, string Mensaje)
