@@ -331,12 +331,73 @@ Create or ALTER   procedure selectPaquetes
 as
 begin
 
-	select idPaquete, nombre, descripcion, costo, tiempoOfrecido, cantidadUsuarios, TB_Paquete.imagen, nombrePista
+	select idPaquete, nombre, descripcion, costo, tiempoOfrecido, cantidadUsuarios, TB_Paquete.imagen, nombrePista, TB_Paquete.idPista, idGoKart
 	from TB_Paquete
 	inner join TB_Pista
 	on TB_Paquete.idPista = TB_Pista.idPista;
 
 end;
+
+go
+Create or ALTER   procedure DeletePorIDPaquete(@idPaquete int)
+as
+begin
+
+	delete from TB_Paquete
+	where idPaquete = @idPaquete;
+
+end;
+
+
+go
+go
+Create or ALTER   procedure agregarpaquete
+(
+
+	@nombre varchar(32),
+	@descripcion varchar(1024),
+	@costo decimal(6,2),
+	@tiempoOfrecido time,
+	@cantidadUsuarios int,
+	@idPista int,
+	@idGoKart int,
+	@imagen varbinary(max)
+
+)
+as
+begin
+
+	insert into TB_Paquete(nombre,descripcion,costo,tiempoOfrecido,cantidadUsuarios,idPista,imagen,idGoKart)
+	values(@nombre,@descripcion,@costo,@tiempoOfrecido,@cantidadUsuarios,@idPista,@imagen,@idGoKart);
+
+end;
+
+go
+Create or ALTER   procedure actualizarpaquete
+(
+
+	@idPaquete int,
+	@nombre varchar(32),
+	@descripcion varchar(1024),
+	@costo decimal(6,2),
+	@tiempoOfrecido int,
+	@cantidadUsuarios int,
+	@idPista int
+	@imagen varbinary(max)
+
+)
+as
+begin
+
+	update TB_Paquete
+	set nombre = @nombre, descripcion = @descripcion, costo = @costo, tiempoOfrecido = @tiempoOfrecido, cantidadUsuarios = @cantidadUsuarios, idPista = @idPista , imagen = @imagen
+	where idPaquete = @idPaquete;
+
+end;
+
+
+
+
 
 /*Preguntas Frecuentes*/
 go

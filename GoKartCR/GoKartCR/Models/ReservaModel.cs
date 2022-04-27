@@ -1,5 +1,4 @@
 ﻿using GoKartCR.Entities;
-using GoKartCR.Entities;
 using Newtonsoft.Json;
 using System.Text;
 using static GoKartCR.Entities.Reserva;
