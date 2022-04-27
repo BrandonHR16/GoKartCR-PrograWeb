@@ -26,3 +26,17 @@ values(1,1,getDate());
 
 insert into TB_Reserva(idUsuario,idPaquete,fecha)
 values(1,1,getDate());
+
+select *
+from TB_Kart;
+
+select *
+from TB_Usuario;
+
+select *
+from TB_Factura;
+
+select *
+from TB_Reserva;
+
+delete from TB_Factura;

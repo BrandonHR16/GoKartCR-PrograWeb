@@ -8,77 +8,81 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = GoKartCR
 build_property.RootNamespace = GoKartCR
-build_property.ProjectDir = d:\Universidad\Universidad\Proyectos de Programacion\GoKartCR-PrograWeb\GoKartCR\
+build_property.ProjectDir = G:\Users\ManuelAlonso\Source\Repos\GoKartCR\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = d:\Universidad\Universidad\Proyectos de Programacion\GoKartCR-PrograWeb\GoKartCR
+build_property.MSBuildProjectDirectory = G:\Users\ManuelAlonso\Source\Repos\GoKartCR
 build_property._RazorSourceGeneratorDebug = 
 
-[d:/Universidad/Universidad/Proyectos de Programacion/GoKartCR-PrograWeb/GoKartCR/GoKartCR/Views/Administrador/preguntasFrecuentes.cshtml]
+[G:/Users/ManuelAlonso/Source/Repos/GoKartCR/GoKartCR/Views/Administrador/preguntasFrecuentes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = R29LYXJ0Q1JcVmlld3NcQWRtaW5pc3RyYWRvclxwcmVndW50YXNGcmVjdWVudGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Universidad/Universidad/Proyectos de Programacion/GoKartCR-PrograWeb/GoKartCR/GoKartCR/Views/Home/CarritoCompra.cshtml]
-build_metadata.AdditionalFiles.TargetPath = R29LYXJ0Q1JcVmlld3NcSG9tZVxDYXJyaXRvQ29tcHJhLmNzaHRtbA==
+[G:/Users/ManuelAlonso/Source/Repos/GoKartCR/GoKartCR/Views/Compras/CarritoCompra.cshtml]
+build_metadata.AdditionalFiles.TargetPath = R29LYXJ0Q1JcVmlld3NcQ29tcHJhc1xDYXJyaXRvQ29tcHJhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Universidad/Universidad/Proyectos de Programacion/GoKartCR-PrograWeb/GoKartCR/GoKartCR/Views/Home/Index.cshtml]
+[G:/Users/ManuelAlonso/Source/Repos/GoKartCR/GoKartCR/Views/Compras/RealizarCompra.cshtml]
+build_metadata.AdditionalFiles.TargetPath = R29LYXJ0Q1JcVmlld3NcQ29tcHJhc1xSZWFsaXphckNvbXByYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Users/ManuelAlonso/Source/Repos/GoKartCR/GoKartCR/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = R29LYXJ0Q1JcVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Universidad/Universidad/Proyectos de Programacion/GoKartCR-PrograWeb/GoKartCR/GoKartCR/Views/Home/Privacy.cshtml]
+[G:/Users/ManuelAlonso/Source/Repos/GoKartCR/GoKartCR/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = R29LYXJ0Q1JcVmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Universidad/Universidad/Proyectos de Programacion/GoKartCR-PrograWeb/GoKartCR/GoKartCR/Views/Shared/Error.cshtml]
+[G:/Users/ManuelAlonso/Source/Repos/GoKartCR/GoKartCR/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = R29LYXJ0Q1JcVmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Universidad/Universidad/Proyectos de Programacion/GoKartCR-PrograWeb/GoKartCR/GoKartCR/Views/Shared/_LayoutAdmin.cshtml]
+[G:/Users/ManuelAlonso/Source/Repos/GoKartCR/GoKartCR/Views/Shared/_LayoutAdmin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = R29LYXJ0Q1JcVmlld3NcU2hhcmVkXF9MYXlvdXRBZG1pbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Universidad/Universidad/Proyectos de Programacion/GoKartCR-PrograWeb/GoKartCR/GoKartCR/Views/Shared/_ValidationScriptsPartial.cshtml]
+[G:/Users/ManuelAlonso/Source/Repos/GoKartCR/GoKartCR/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = R29LYXJ0Q1JcVmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Universidad/Universidad/Proyectos de Programacion/GoKartCR-PrograWeb/GoKartCR/GoKartCR/Views/_ViewImports.cshtml]
+[G:/Users/ManuelAlonso/Source/Repos/GoKartCR/GoKartCR/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = R29LYXJ0Q1JcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Universidad/Universidad/Proyectos de Programacion/GoKartCR-PrograWeb/GoKartCR/GoKartCR/Views/_ViewStart.cshtml]
+[G:/Users/ManuelAlonso/Source/Repos/GoKartCR/GoKartCR/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = R29LYXJ0Q1JcVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Universidad/Universidad/Proyectos de Programacion/GoKartCR-PrograWeb/GoKartCR/Views/Home/Index.cshtml]
+[G:/Users/ManuelAlonso/Source/Repos/GoKartCR/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Universidad/Universidad/Proyectos de Programacion/GoKartCR-PrograWeb/GoKartCR/Views/Home/Privacy.cshtml]
+[G:/Users/ManuelAlonso/Source/Repos/GoKartCR/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Universidad/Universidad/Proyectos de Programacion/GoKartCR-PrograWeb/GoKartCR/Views/Shared/Error.cshtml]
+[G:/Users/ManuelAlonso/Source/Repos/GoKartCR/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Universidad/Universidad/Proyectos de Programacion/GoKartCR-PrograWeb/GoKartCR/Views/Shared/_ValidationScriptsPartial.cshtml]
+[G:/Users/ManuelAlonso/Source/Repos/GoKartCR/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Universidad/Universidad/Proyectos de Programacion/GoKartCR-PrograWeb/GoKartCR/Views/_ViewImports.cshtml]
+[G:/Users/ManuelAlonso/Source/Repos/GoKartCR/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Universidad/Universidad/Proyectos de Programacion/GoKartCR-PrograWeb/GoKartCR/Views/_ViewStart.cshtml]
+[G:/Users/ManuelAlonso/Source/Repos/GoKartCR/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Universidad/Universidad/Proyectos de Programacion/GoKartCR-PrograWeb/GoKartCR/GoKartCR/Views/Shared/_Layout.cshtml]
+[G:/Users/ManuelAlonso/Source/Repos/GoKartCR/GoKartCR/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = R29LYXJ0Q1JcVmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-c89n96ro6p
 
-[d:/Universidad/Universidad/Proyectos de Programacion/GoKartCR-PrograWeb/GoKartCR/Views/Shared/_Layout.cshtml]
+[G:/Users/ManuelAlonso/Source/Repos/GoKartCR/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-1ucgiglvip

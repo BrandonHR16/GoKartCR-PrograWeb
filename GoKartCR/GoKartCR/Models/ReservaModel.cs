@@ -1,4 +1,5 @@
 ﻿using GoKartCR.Entities;
+using GoKartCR.Entities;
 using Newtonsoft.Json;
 using System.Text;
 using static GoKartCR.Entities.Reserva;
@@ -103,8 +104,33 @@ namespace GoKartCR.Models
                 return res.listaDeReservas;
             }
 
-
         } //Fin
 
-    }
-}
+        public ReservaAPagarRespuesta getReservasaPagar(int idUsuario)
+        {
+            using (var http = new HttpClient())
+            {
+                var response = http.GetAsync("https://localhost:7169/api/Reserva/ReservasAPagar?idUsuario="+idUsuario).Result;
+
+                var res = JsonConvert.DeserializeObject<ReservaAPagarRespuesta>(response.Content.ReadAsStringAsync().Result);
+
+                if (response.IsSuccessStatusCode)
+                {
+
+                    return res;
+
+                }
+                else
+                {
+
+                    return null;
+
+                }
+         
+            } //Fin del using.
+
+        } //Fin de getReservasaPagar
+
+    } //Fin de la clase.
+
+} //Fin del namespace. 

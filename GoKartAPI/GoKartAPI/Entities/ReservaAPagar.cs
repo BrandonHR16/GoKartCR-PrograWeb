@@ -9,7 +9,8 @@
         public TimeSpan tiempoOfrecidoPaquete { get; set; }
         public string descripcionPaquete { get; set; }
         public int cantidadUsuariosPaquete { get; set; }
-        public decimal costoPaquete { get; set; }
+        public decimal costoPaqueteSinIVA { get; set; }
+        public decimal costoPaqueteConIVA { get; set; }
 
     } //Fin.
 

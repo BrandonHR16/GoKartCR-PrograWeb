@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "G:\\Users\\ManuelAlonso\\Source\\Repos\\GoKartCR-PrograWeb\\GoKartCR\\GoKartCR\\GoKartCR.csproj": {}
+    "G:\\Users\\ManuelAlonso\\Source\\Repos\\GoKartCR\\GoKartCR\\GoKartCR.csproj": {}
   },
   "projects": {
-    "G:\\Users\\ManuelAlonso\\Source\\Repos\\GoKartCR-PrograWeb\\GoKartCR\\GoKartCR\\GoKartCR.csproj": {
+    "G:\\Users\\ManuelAlonso\\Source\\Repos\\GoKartCR\\GoKartCR\\GoKartCR.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Users\\ManuelAlonso\\Source\\Repos\\GoKartCR-PrograWeb\\GoKartCR\\GoKartCR\\GoKartCR.csproj",
+        "projectUniqueName": "G:\\Users\\ManuelAlonso\\Source\\Repos\\GoKartCR\\GoKartCR\\GoKartCR.csproj",
         "projectName": "GoKartCR",
-        "projectPath": "G:\\Users\\ManuelAlonso\\Source\\Repos\\GoKartCR-PrograWeb\\GoKartCR\\GoKartCR\\GoKartCR.csproj",
+        "projectPath": "G:\\Users\\ManuelAlonso\\Source\\Repos\\GoKartCR\\GoKartCR\\GoKartCR.csproj",
         "packagesPath": "C:\\Users\\ManuelAlonso\\.nuget\\packages\\",
-        "outputPath": "G:\\Users\\ManuelAlonso\\Source\\Repos\\GoKartCR-PrograWeb\\GoKartCR\\GoKartCR\\obj\\",
+        "outputPath": "G:\\Users\\ManuelAlonso\\Source\\Repos\\GoKartCR\\GoKartCR\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ManuelAlonso\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -50,7 +50,7 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[6.0.2, )"
+              "version": "[6.0.3, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -63,6 +63,10 @@
             "ServiceStack.Common": {
               "target": "Package",
               "version": "[6.0.2, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.3.0, )"
             }
           },
           "imports": [

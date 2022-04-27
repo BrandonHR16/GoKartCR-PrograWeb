@@ -425,7 +425,7 @@ END
 GO
 /*Selecciona Reserva la fecha coincida ignorando la hora*/
 GO
-CREATE or alter PROCEDURE selectReservaPorFecha(@fecha date)
+CREATE or alter PROCEDURE selectReservaPorFecha(@fecha date,@id int)
 AS
 BEGIN
 SELECT [idReserva]
@@ -444,11 +444,15 @@ END
 go 
 create or alter procedure getReservasaPagar(@idUsuario int)
 as
+
+	declare @@IVA decimal = 13;
+
 begin
 
 	select R.idReserva, R.fecha, P.nombre as "nombrePaquete",
 	P.tiempoOfrecido as "tiempoOfrecidoPaquete", P.descripcion as "descripcionPaquete", 
-	P.cantidadUsuarios as "cantidadUsuariosPaquete", P.costo as "costoPaquete"
+	P.cantidadUsuarios as "cantidadUsuariosPaquete", P.costo as costoPaqueteSinIVA, 
+	(P.costo+ (P.costo*@@IVA)/100) as "costoPaqueteConIVA"
 	from TB_Reserva as "R"
 	inner join TB_Paquete as "P"
 	on P.idPaquete = R.idPaquete

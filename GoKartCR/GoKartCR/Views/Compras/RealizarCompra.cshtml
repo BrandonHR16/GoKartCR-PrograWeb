@@ -1,0 +1,31 @@
+﻿@model GoKartCR.Entities.CompraRespuesta
+
+@{
+    ViewData["Title"] = "Resutado Compra";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model != null)
+{
+    
+    @if(Model.idCodigo==0){
+
+        <h1>Compra realizada.</h1>
+
+    } else if(Model.idCodigo==1){
+
+        <h1>Conexión con el API, pero error a la hora de registrar la compra.</h1>
+
+    } else if (Model.idCodigo==2)
+    {
+       
+        <h1>Nada por comprar.</h1>
+
+    }
+
+} else
+{
+    
+    <h2>Error a la hora de contactar con el API.</h2>
+
+}
