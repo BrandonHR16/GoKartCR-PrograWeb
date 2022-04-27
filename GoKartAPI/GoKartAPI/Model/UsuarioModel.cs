@@ -121,6 +121,50 @@ namespace GoKartAPI.Model
 
         } //Fin de registarUsuario.
 
+        public string generarTokenRecuperacionContrasennia(IConfiguration configuracionP, string correoUsuario)
+        {
+
+            var conexion = new SqlConnection(configuracionP.GetSection("ConnectionStrings:baseDeDatos").Value);
+
+            conexion.Open();
+
+            string token = conexion.Query<string>("generarTokenRecuperacionContrasennia",
+                new
+                {
+
+                    correoUsuario
+
+                },
+                commandType: CommandType.StoredProcedure).FirstOrDefault();
+
+            conexion.Close();
+
+            return token;
+
+        } //Fin de generarTokenRecuperacionContrasennia.
+
+        public void restablecerContrasennia(IConfiguration configuracionP, string correoUsuario , string tokenRecuperacion,string nuevaContrasennia)
+        {
+
+            var conexion = new SqlConnection(configuracionP.GetSection("ConnectionStrings:baseDeDatos").Value);
+
+            conexion.Open();
+
+            conexion.Execute("restablecerContrasennia",
+                new
+                {
+
+                    correoUsuario,
+                    tokenRecuperacion,
+                    nuevaContrasennia
+
+                },
+                commandType: CommandType.StoredProcedure);
+
+            conexion.Close();
+
+        } //Fin de generarTokenRecuperacionContrasennia.
+
         public UsuarioRespuesta armarRespuesta(int idCodigo, string mensaje, List<Usuario> listaUsuarios)
         {
 
