@@ -1,0 +1,38 @@
+﻿@model GoKartCR.Entities.UsuarioRespuesta
+@{
+    Layout = "_LayoutAdmin";
+}
+
+
+<div class="card">
+    <h2>Paquetes</h2>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col text-end">
+            
+        </div>
+    </div>
+    <table class="table table-striped" id="TClientes">
+        <thead>
+            <tr> 
+                <th>IdUsuario</th>
+                <th>Cedula</th>
+                <th>Correo</th>
+                <th>Telefono</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.listaUsuarios)
+            {
+
+                <tr>
+                     <td>@item.idUsuario</td>
+                    <td>@item.cedulaUsuario</td>
+                    <td>@item.correoElectronico</td>
+                    <td>@item.telefono</td>
+                </tr>
+            }
+        </tbody>
+</div>

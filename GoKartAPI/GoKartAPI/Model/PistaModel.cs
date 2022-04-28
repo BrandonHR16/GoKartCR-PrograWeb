@@ -69,6 +69,7 @@ namespace GoKartAPI.Model
                     nuevaPista.nombrePista,
                     nuevaPista.distanciaMetros,
                     nuevaPista.capacidadUsuarios,
+                    nuevaPista.Imagen
                   
 
                 },
@@ -98,6 +99,28 @@ namespace GoKartAPI.Model
                 commandType: CommandType.StoredProcedure);
 
             conexion.Close();
+
+        } //Fin de registarUsuario.
+
+        //eliminarPistas
+        public int eliminarPista(int idPista, IConfiguration configuracionP)
+        {
+
+            var conexion = new SqlConnection(configuracionP.GetSection("ConnectionStrings:baseDeDatos").Value);
+
+            conexion.Open();
+
+            var res = conexion.Execute("eliminarPistas",
+                new
+                {
+
+                    idPista
+
+                },
+                commandType: CommandType.StoredProcedure);
+
+            conexion.Close();
+            return res;
 
         } //Fin de registarUsuario.
 

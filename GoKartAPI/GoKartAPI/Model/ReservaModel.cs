@@ -9,14 +9,14 @@ namespace GoKartAPI.Model
     {
 
         //reserva por su id
-        public Reserva BuscarReserva(int id, IConfiguration configuracionP)
+        public Reserva BuscarReserva(int idReserva, IConfiguration configuracionP)
         {
 
             var conexion = new SqlConnection(configuracionP.GetSection("ConnectionStrings:baseDeDatos").Value);
 
             conexion.Open();
 
-            var reserva = conexion.Query<Reserva>("selectReservaPorID", new { id }, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            var reserva = conexion.Query<Reserva>("selectReservaPorID", new { idReserva }, commandType: CommandType.StoredProcedure).FirstOrDefault();
 
             conexion.Close();
 
@@ -55,20 +55,48 @@ namespace GoKartAPI.Model
         } //Fin
 
         //selectReservaPorFecha
-        public List<Reserva> ReservasPorFecha(string fecha, IConfiguration configuracionP)
+        public List<Reserva> ReservasPorFecha(string fecha,int id, IConfiguration configuracionP)
         {
 
             var conexion = new SqlConnection(configuracionP.GetSection("ConnectionStrings:baseDeDatos").Value);
 
             conexion.Open();
 
-            var listaReservas = conexion.Query<Reserva>("selectReservaPorFecha", new { fecha }, commandType: CommandType.StoredProcedure).ToList();
+            var listaReservas = conexion.Query<Reserva>("selectReservaPorFecha", new { fecha,id }, commandType: CommandType.StoredProcedure).ToList();
 
             conexion.Close();
 
             return listaReservas;
 
         } //Fin
+
+        public List<ReservaAPagar> getReservasaPagar(IConfiguration configuracionP, int idUsuario)
+        {
+
+            var conexion = new SqlConnection(configuracionP.GetSection("ConnectionStrings:baseDeDatos").Value);
+
+            conexion.Open();
+
+            var listaReservasAPagar = conexion.Query<ReservaAPagar>("getReservasaPagar", new { idUsuario }, commandType: CommandType.StoredProcedure).ToList();
+
+            conexion.Close();
+
+            return listaReservasAPagar;
+
+        } //Fin
+
+        public ReservaAPagarRespuesta armarRespuestaReservaAPagar(int idCodigo, string mensaje, List<ReservaAPagar> reservasAPagar)
+        {
+
+            ReservaAPagarRespuesta respuesta = new ReservaAPagarRespuesta();
+
+            respuesta.idCodigo = idCodigo;
+            respuesta.mensaje = mensaje;
+            respuesta.reserverAPagar = reservasAPagar;
+
+            return respuesta;
+
+        } //Fin.
 
     }
 }

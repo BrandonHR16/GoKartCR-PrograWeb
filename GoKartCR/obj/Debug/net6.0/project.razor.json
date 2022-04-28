@@ -16308,6 +16308,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartCR\\GoKartCR\\Views\\Compras\\CarritoCompra.cshtml",
+      "TargetPath": "GoKartCR\\Views\\Compras\\CarritoCompra.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartCR\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"
@@ -16318,8 +16323,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartCR\\GoKartCR\\Views\\Administrador\\Clientes.cshtml",
+      "TargetPath": "GoKartCR\\Views\\Administrador\\Clientes.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartCR\\GoKartCR\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "GoKartCR\\Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartCR\\GoKartCR\\Views\\Compras\\RealizarCompra.cshtml",
+      "TargetPath": "GoKartCR\\Views\\Compras\\RealizarCompra.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16340,6 +16355,11 @@
     {
       "FilePath": "d:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartCR\\GoKartCR\\Views\\Administrador\\preguntasFrecuentes.cshtml",
       "TargetPath": "GoKartCR\\Views\\Administrador\\preguntasFrecuentes.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartCR\\GoKartCR\\Views\\Administrador\\Pistas.cshtml",
+      "TargetPath": "GoKartCR\\Views\\Administrador\\Pistas.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16370,6 +16390,11 @@
     {
       "FilePath": "d:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartCR\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartCR\\GoKartCR\\Views\\Administrador\\Paquetes.cshtml",
+      "TargetPath": "GoKartCR\\Views\\Administrador\\Paquetes.cshtml",
       "FileKind": "mvc"
     },
     {

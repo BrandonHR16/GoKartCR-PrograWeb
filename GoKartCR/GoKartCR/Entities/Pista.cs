@@ -6,7 +6,7 @@
         public string nombrePista { get; set; } = String.Empty;
         public decimal? distanciaMetros { get; set; }
         public int capacidadUsuarios { get; set; } = 0;
-
+        public IFormFile file { get; set; }
         public byte[] Imagen { get; set; }
     }
 

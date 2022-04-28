@@ -33,7 +33,20 @@ namespace GoKartCR.Models
             }
         }
 
+        public UsuarioRespuesta getUsuarios()
+        {
+            using (var http = new HttpClient())
+            {
+                var response = http.GetAsync("https://localhost:7169/api/Usuario/getUsuarios").Result;
 
- 
+                var usuarioRegistrado = JsonConvert.DeserializeObject<UsuarioRespuesta>(response.Content.ReadAsStringAsync().Result);
+
+                return usuarioRegistrado;
+
+            }
+        }
+
+
+
     }
 }
