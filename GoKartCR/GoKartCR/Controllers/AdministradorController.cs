@@ -9,8 +9,6 @@ namespace GoKartCR.Controllers
         PreguntasModel preguntasModel = new PreguntasModel();
         CorreoModel correomodel = new CorreoModel();
         RegistrarAdminModel registAdminModel = new RegistrarAdminModel();
-        PaquetesModel paquetemodel = new PaquetesModel();
-
 
 
         public IActionResult preguntasFrecuentes()
@@ -104,126 +102,6 @@ namespace GoKartCR.Controllers
 
                 TempData["Mensaje"] = "Error al conectar con el servidor.error";
                 return RedirectToAction("preguntasFrecuentes", "Administrador");
-            }
-
-        }
-    
-    
-        //modelPaquetes
-        //obtenerPaquete
-        public async Task<IActionResult> Paquetes()
-        {
-            try
-            {
-                var data = paquetemodel.obtenerPaquete();
-                return View(data);
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-
-        }
-        //public int idPaquete { get; set; } = 0;
-        //public string nombre { get; set; } = String.Empty;
-        //public string descripcion { get; set; } = String.Empty;
-        //public int costo { get; set; } = 0;
-        //public TimeSpan tiempoOfrecido { get; set; }
-        //public int cantidadUsuarios { get; set; } = 0;
-        //public byte[] imagen { get; set; }
-        //public int idPista { get; set; } = 0;
-        //public string nombrePista { get; set; } = String.Empty;
-
-        //crre una tabla con los datos de los paquetes
-        //agregar paquete
-        [HttpPost]
-        //obtener el input de la imagen
-      
-        public async Task<IActionResult> AgregarPaquete(Paquete paquete)
-        {
-            try
-            {
-                if (paquete.file != null)
-                {
-                    paquete.imagen = new byte[paquete.file.Length];
-                    paquete.file.OpenReadStream().Read(paquete.imagen, 0, (int)paquete.file.Length);
-                }
-                var data = paquetemodel.agregarPaquete(paquete);
-                if (data.idCodigo == 0)
-                {
-                    TempData["Mensaje"] = "Se agrego el paquete con exito.success";
-                    return RedirectToAction("Paquetes", "Administrador");
-                }
-                else
-                {
-                    TempData["Mensaje"] = "Error al agregar el paquete.error";
-                    return RedirectToAction("Paquetes", "Administrador");
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> EditarPaquete(Paquete paquete)
-        {
-            try
-            {
-                if (paquete.file != null)
-                {
-                    paquete.imagen = new byte[paquete.file.Length];
-                    paquete.file.OpenReadStream().Read(paquete.imagen, 0, (int)paquete.file.Length);
-                }
-                var data = paquetemodel.actualizarPaquete(paquete);
-                if (data.idCodigo == 0)
-                {
-                    TempData["Mensaje"] = "Se agrego el paquete con exito.success";
-                    return RedirectToAction("Paquetes", "Administrador");
-                }
-                else
-                {
-                    TempData["Mensaje"] = "Error al agregar el paquete.error";
-                    return RedirectToAction("Paquetes", "Administrador");
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-
-        }
-
-        //delte
-        [HttpPost]
-        //por id
-        public async Task<IActionResult> EliminarPaquete(int id)
-        {
-            try
-            {
-                Paquete paquete = new Paquete();
-                paquete.idPaquete = id;
-                var data = paquetemodel.deletePaquete(paquete);
-                if (data.idCodigo == 0)
-                {
-                    TempData["Mensaje"] = "Se elimino el paquete con exito.success";
-                    return RedirectToAction("Paquetes", "Administrador");
-                }
-                else
-                {
-                    TempData["Mensaje"] = "Error al eliminar el paquete.error";
-                    return RedirectToAction("Paquetes", "Administrador");
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
             }
 
         }

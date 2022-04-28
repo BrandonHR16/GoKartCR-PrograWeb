@@ -1,5 +1,6 @@
 ﻿@using GoKartCR.Entities
 @model dynamic
+
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -96,6 +97,7 @@
             </div>
             @* pist1*@
             @if (Model.Pistas != null)
+
             {
                 foreach (Pista pista in Model.Pistas)
                 {
@@ -115,6 +117,7 @@
             }
         </div>
 
+
     </div>
     </div>
 </section>
@@ -131,16 +134,15 @@
                 <h2 data-aos="fade-up" data-aos-delay="200">Nuestros Combos</h2>
             </div>
 
-            @if (Model.Paquetes != null)
+            @if (Model.Pistas != null)
             {
-
                 foreach (Paquete paquete in Model.Paquetes)
                 {
-                    var base64 = Convert.ToBase64String(paquete.imagen);
-                    var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                    // var base64 = Convert.ToBase64String(paquete.imagen);
+                    //var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
                     <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="400">
                         <div class="class-thumb">
-                            <img src="@imgSrc" class="img-fluid" alt="Class">
+                            @*<img src="@imgSrc" class="img-fluid" alt="Class">*@
 
                             <div class="class-info">
                                 <h3 class="mb-1">@paquete.nombre</h3>
@@ -150,19 +152,11 @@
                                 <span><strong>Duración: </strong>@paquete.tiempoOfrecido</span>
                                 <br>
                                 <span><strong>Pista: </strong>@paquete.nombrePista</span>
-                                <br>
-
-                                @{
-                                    var comprobante = Context.Request.Cookies["Nombre"];
-
-                                    if (comprobante != null)
-                                    {
-                                        <span><button class="btn custom-btn bg-color mt-3 paqueteid" id="@paquete.idPaquete" data-bs-toggle="modal" data-bs-target="#carritoModal">Comprar</button></span>
-
-                                    }
-                                }
 
                                 <span class="class-price">₡@paquete.costo</span>
+
+                                <button class="btn custom-btn bg-color mt-3" data-bs-toggle="modal" data-bs-target="#carritoModal">Comprar</button>
+
 
                             </div>
                         </div>
@@ -189,7 +183,7 @@
             </div>
 
             <div class="col-lg-12 py-5 col-md-12 col-12">
-                                <table class="table table-bordered table-responsive schedule-table" data-aos="fade-up" data-aos-delay="300">
+                <table class="table table-bordered table-responsive schedule-table" data-aos="fade-up" data-aos-delay="300">
                  
                              
 
@@ -467,8 +461,9 @@
                     </tbody>
                         
                 </table>
+           
             </div>
-
+            
         </div>
     </div>
 </section>
@@ -720,80 +715,57 @@
             </div>
 
             <div class="modal-body">
+              
+                    <div class="row gx-2">
 
-                <div class="row gx-2">
-
-                    <div class="row">
-                        <div class="col-10">
-                            <label class="text-center">Fecha</label>
-                            @Html.TextBox("Fecha","",
+                        <div class="col">
+                            <div>
+                                <label class="text-center">Fecha</label>
+                             @Html.TextBox("Fecha","",
                             new
                             {
-                            @class="form-control pb-3 datepicker",
-                            @id="Fecha",
-                            @type="date"
+                            @class="form-control",
+                            @id="Fecha"
                             })
-                            <div class="col-2">
-                                <button type="button" class="form-control botonResreva btn-evio" id="submit-button" name="submit" onsubmit="ConsultarDispo()">Consultar</button>
                             </div>
-                            <div class="row border m-2">
-
-                                <div class="col-10">
-                                    <label class="text-center fs-5">Mañana</label>
-
-                                </div>
-                                <div class="col-2">
-                                    @{
-                                        Reserva res = new Reserva();
-
-                                        @Html.CheckBox("mannana", false , new {@class="formcontrol", @id="mannana"})
-                                    }
-                                </div>
+                                @Html.TextBox("Cedula","",
+                            new
+                            {
+                            @class="form-control",
+                            @type="number",
+                            @id="Dia"
+                            })
                             </div>
-                            <div class="row border m-2">
-
-                                <div class="col-10">
-                                    <label class="text-center fs-5">Tarde</label>
-
-                                </div>
-                                <div class="col-2">
-                                    @Html.CheckBox("tarde",false,
-                                    new
-                                    {
-                                    @class="",
-                                    @id="tarde",
-                                    })
-                                </div>
+                            <div>
+                                <label class="text-center">Nombre</label>
+                                @Html.TextBox("Nombre","",
+                            new
+                            {
+                            @class="form-control",
+                            @type="input",
+                            @id="Tarde"
+                            })
                             </div>
-                            <div class="row border m-2">
-
-                                <div class="col-10">
-                                    <label class="text-center fs-5">Noche</label>
-
-                                </div>
-                                <div class="col-2">
-                                    @Html.CheckBox("noche",false,
-                                    new
-                                    {
-                                    @class="",
-                                    @id="noche",
-                                    @value= "Holaaa"
-                                    })
-                                </div>
-                            </div>
-                            <div class="row">
-                                <button type="submit" class="form-control submit-button2 btnreservar" id="submit-button" name="submit">Reservar</button>
-                                <div>
-                                </div>
+                            <div>
+                                <label class="text-center">Primer Apellido</label>
+                                @Html.TextBox("PrimerApellido","",
+                            new
+                            {
+                            @class="form-control",
+                            @type="input",
+                            @id="Noche"
+                            })
+                            <button type="submit"id="btn-evio" onsubmit="ConsultarDispo()"></button>
                             </div>
                         </div>
-                        <div class="modal-footer"></div>
-
                     </div>
-                </div>
-
             </div>
+
+            <div class="modal-footer"></div>
+
         </div>
     </div>
+
 </div>
 
+</div>

@@ -15,20 +15,8 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Universidad\Universidad\Proyectos de Programacion\GoKartCR-PrograWeb\GoKartCR\GoKartCR
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Universidad/Universidad/Proyectos de Programacion/GoKartCR-PrograWeb/GoKartCR/GoKartCR/Views/Administrador/Paquetes.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxQYXF1ZXRlcy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/Universidad/Universidad/Proyectos de Programacion/GoKartCR-PrograWeb/GoKartCR/GoKartCR/Views/Administrador/preguntasFrecuentes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxwcmVndW50YXNGcmVjdWVudGVzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Universidad/Universidad/Proyectos de Programacion/GoKartCR-PrograWeb/GoKartCR/GoKartCR/Views/Compras/CarritoCompra.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcHJhc1xDYXJyaXRvQ29tcHJhLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Universidad/Universidad/Proyectos de Programacion/GoKartCR-PrograWeb/GoKartCR/GoKartCR/Views/Compras/RealizarCompra.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcHJhc1xSZWFsaXphckNvbXByYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Universidad/Universidad/Proyectos de Programacion/GoKartCR-PrograWeb/GoKartCR/GoKartCR/Views/Home/Index.cshtml]

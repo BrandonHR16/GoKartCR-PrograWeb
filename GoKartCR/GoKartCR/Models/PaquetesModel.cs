@@ -1,6 +1,5 @@
 ﻿using GoKartCR.Entities;
 using Newtonsoft.Json;
-using System.Text;
 
 namespace GoKartCR.Models
 {
@@ -15,51 +14,6 @@ namespace GoKartCR.Models
                 var paquete = JsonConvert.DeserializeObject<PaqueteRespuesta>(response.Content.ReadAsStringAsync().Result);
 
                 return paquete;
-
-            }
-
-        }
-        //actualizarPaquete
-        public PaqueteRespuesta actualizarPaquete(Paquete paquete)
-        {
-            using (var http = new HttpClient())
-            {
-                var response = http.PutAsync("https://localhost:7169/api/Paquete/actualizarPaquete", new StringContent(JsonConvert.SerializeObject(paquete), Encoding.UTF8, "application/json")).Result;
-
-                var paquetes = JsonConvert.DeserializeObject<PaqueteRespuesta>(response.Content.ReadAsStringAsync().Result);
-
-                return paquetes;
-
-            }
-
-        }
-        //agregarPaquete
-        public PaqueteRespuesta agregarPaquete(Paquete paquete)
-        {
-            //post
-            using (var http = new HttpClient())
-            {
-                var response = http.PostAsync("https://localhost:7169/api/Paquete/agregarPaquete", new StringContent(JsonConvert.SerializeObject(paquete), Encoding.UTF8, "application/json")).Result;
-
-                var paquetes = JsonConvert.DeserializeObject<PaqueteRespuesta>(response.Content.ReadAsStringAsync().Result);
-
-                return paquetes;
-
-            }
-
-        }
-
-        //deletePaquete
-        public PaqueteRespuesta deletePaquete(Paquete paquete)
-        {
-            //DELETE
-            using (var http = new HttpClient())
-            {
-                var response = http.DeleteAsync("https://localhost:7169/api/Paquete/deletePaquete?idPaquete=" + paquete.idPaquete).Result;
-
-                var paquetes = JsonConvert.DeserializeObject<PaqueteRespuesta>(response.Content.ReadAsStringAsync().Result);
-
-                return paquetes;
 
             }
 

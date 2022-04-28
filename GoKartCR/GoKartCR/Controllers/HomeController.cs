@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Diagnostics;
 using Microsoft.JSInterop;
-using CurrieTechnologies.Razor.SweetAlert2;
+
 using System.Dynamic;
 using System.Globalization;
 
@@ -14,11 +14,12 @@ namespace GoKartCR.Controllers
     {
         UsuarioModel usuariomodel = new UsuarioModel();
         PistasModel pistasModel = new PistasModel();
+        Tabla_EventosModel eventosModel = new Tabla_EventosModel();
         PaquetesModel paqueteModel = new PaquetesModel();
         PreguntasModel preguntaModel = new PreguntasModel();
         ReservaModel reservasModel = new ReservaModel();
-        Tabla_EventosModel eventosModel = new Tabla_EventosModel();
-         RegistrarAdminModel regisAdminModel = new RegistrarAdminModel();
+        RegistrarAdminModel regisAdminModel = new RegistrarAdminModel();
+     
 
         dynamic mymodel = new ExpandoObject();
         private readonly ILogger<HomeController> _logger;
@@ -31,14 +32,9 @@ namespace GoKartCR.Controllers
         public IActionResult Index()
         {
             mymodel.Pistas = GetPistas();
+            mymodel.Eventos = GetEvento();
             mymodel.Paquetes = GetPaquetes();
-             mymodel.Eventos = GetEvento();
-            mymodel.Reserva = new Reserva();
             return View(mymodel);
-        }
-        public IActionResult CarritoCompra()
-        {
-            return View();
         }
 
         public IActionResult Privacy()
@@ -67,7 +63,6 @@ namespace GoKartCR.Controllers
                         {
                             Response.Cookies.Append("Rol", res.listaUsuarios[0].idRol.ToString(), new Microsoft.AspNetCore.Http.CookieOptions { Expires = DateTime.Now.AddMinutes(10) });
                             Response.Cookies.Append("Nombre", res.listaUsuarios[0].primerNombre, new Microsoft.AspNetCore.Http.CookieOptions { Expires = DateTime.Now.AddMinutes(10) });
-                            Response.Cookies.Append("IdUser", res.listaUsuarios[0].idUsuario.ToString(), new Microsoft.AspNetCore.Http.CookieOptions { Expires = DateTime.Now.AddMinutes(10) });
                             TempData["Mensaje"] = "Inicio sesion correctamente.success";
                             return RedirectToAction("Index", "Home");
                         }
@@ -167,12 +162,16 @@ namespace GoKartCR.Controllers
 
         }
 
-                public List<Tabla_Eventos> GetEvento()
+
+        public List<Tabla_Eventos> GetEvento()
         {
             TablaRespuesta res = eventosModel.obtenerEvento();
             return res.listaEventos;
 
         }
+    
+
+
         //Preguntas
 
         public async Task<IActionResult> enviarPregunta(string Nombre, string Correo, string Mensaje)
@@ -205,63 +204,11 @@ namespace GoKartCR.Controllers
         }
 
 
-        public JsonResult consultarReservas(string time, int id){
+        public JsonResult consultarReservas(string time){
             //dar formato de DataTime a time 2022-04-22
-            try
-            {
-            var res = reservasModel.ReservasPorFecha(time, id);
+            
+            var res = reservasModel.ReservasPorFecha(time);
             return Json(res);
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-
-        }
-
-
-        public async void CreaReserva(int idPaquete, int idUsuario, string fecha, bool mannana, bool tarde, bool noche)
-        {
-
-            //cambiar la fecha a formato de DataTime
-            DateTime fechaReserva = DateTime.ParseExact(fecha, "yyyy-MM-dd", CultureInfo.InvariantCulture);
-
-            try
-            {
-                if (mannana == true)
-                {
-                    //establecer add 9 am 
-                    fechaReserva = fechaReserva.AddHours(9);
-                }
-                else if (tarde == true)
-                {
-
-                   fechaReserva = fechaReserva.AddHours(13);
-                }
-                else if (noche == true)
-                {
-
-                    fechaReserva = fechaReserva.AddHours(20);
-                }
-                string idUsuarioweb = Request.Cookies["IdUser"];
-                idUsuario = Int32.Parse(idUsuarioweb);
-                Reserva res = new Reserva();
-                res.idPaquete = idPaquete;
-                res.idUsuario = idUsuario;
-                res.fecha = fechaReserva;
-                res.mannana = mannana;
-                res.tarde = tarde;
-                res.noche = noche;
-                reservasModel.AgregarReserva(res);
-
-                }
-            catch (Exception e)
-            {
-
-                throw;
-            }
-
         }
     }
 }
