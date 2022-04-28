@@ -15,6 +15,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Universidad\Universidad\Proyectos de Programacion\GoKartCR-PrograWeb\GoKartCR\GoKartCR
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Universidad/Universidad/Proyectos de Programacion/GoKartCR-PrograWeb/GoKartCR/GoKartCR/Views/Administrador/AgregarAdministrador.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxBZ3JlZ2FyQWRtaW5pc3RyYWRvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Universidad/Universidad/Proyectos de Programacion/GoKartCR-PrograWeb/GoKartCR/GoKartCR/Views/Administrador/Clientes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxDbGllbnRlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

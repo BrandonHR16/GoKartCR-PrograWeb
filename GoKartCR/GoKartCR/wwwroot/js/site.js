@@ -7,7 +7,6 @@ var idpaquete;
 
 //cuando la pagian carga
 $(document).ready(function () {
-    $('#Fecha').datepicker();
 
 
     //uncheck
@@ -21,7 +20,6 @@ $(document).ready(function () {
 
 
 
-    $('#Fecha').datepicker();
     $('.paqueteid').click(function (e) {
         //obtener el id del boton
         idpaquete = $('.paqueteid').attr('id');
@@ -92,5 +90,8 @@ $(document).ready(function () {
         });
     }
     );
+
+
+
 
 });
