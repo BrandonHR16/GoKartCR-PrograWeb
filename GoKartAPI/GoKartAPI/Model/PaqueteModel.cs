@@ -71,14 +71,14 @@ namespace GoKartAPI.Model
 
 
         //DeletePorIDPaquete
-        public Paquete deletePaquete(Paquete paquete, IConfiguration configuracionP)
+        public int deletePaquete(int idPaquete, IConfiguration configuracionP)
         {
 
             var conexion = new SqlConnection(configuracionP.GetSection("ConnectionStrings:baseDeDatos").Value);
 
             conexion.Open();
 
-            var paqueteEliminado = conexion.QueryFirstOrDefault<Paquete>("deletePaquete", new { paquete.idPaquete }, commandType: CommandType.StoredProcedure);
+            var paqueteEliminado = conexion.Execute("DeletePorIDPaquete", new { idPaquete }, commandType: CommandType.StoredProcedure);
 
             conexion.Close();
 

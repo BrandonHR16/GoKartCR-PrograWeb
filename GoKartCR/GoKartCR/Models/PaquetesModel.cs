@@ -55,12 +55,14 @@ namespace GoKartCR.Models
         }
 
         //deletePaquete
-        public PaqueteRespuesta deletePaquete(Paquete paquete)
+        public PaqueteRespuesta deletePaquete(int id)
         {
             //DELETE
             using (var http = new HttpClient())
             {
-                var response = http.DeleteAsync("https://localhost:7169/api/Paquete/deletePaquete?idPaquete=" + paquete.idPaquete).Result;
+
+
+                var response = http.DeleteAsync("https://localhost:7169/api/Paquete/deletePaquete?idPaquete=" + id).Result;
 
                 var paquetes = JsonConvert.DeserializeObject<PaqueteRespuesta>(response.Content.ReadAsStringAsync().Result);
 

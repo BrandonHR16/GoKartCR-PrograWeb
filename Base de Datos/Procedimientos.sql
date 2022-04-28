@@ -209,6 +209,17 @@ begin
 end;
 
 go
+create or alter procedure eliminarPistas(@idPista int)
+as
+begin
+
+
+
+DELETE FROM [dbo].[TB_Pista]
+      WHERE idPista = @idPista
+end
+
+go
 create or alter procedure selectPistaPorNombre(@nombrePista varchar(32))
 as
 begin

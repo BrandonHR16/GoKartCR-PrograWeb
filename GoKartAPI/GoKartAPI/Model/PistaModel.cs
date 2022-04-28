@@ -102,6 +102,28 @@ namespace GoKartAPI.Model
 
         } //Fin de registarUsuario.
 
+        //eliminarPistas
+        public int eliminarPista(int idPista, IConfiguration configuracionP)
+        {
+
+            var conexion = new SqlConnection(configuracionP.GetSection("ConnectionStrings:baseDeDatos").Value);
+
+            conexion.Open();
+
+            var res = conexion.Execute("eliminarPistas",
+                new
+                {
+
+                    idPista
+
+                },
+                commandType: CommandType.StoredProcedure);
+
+            conexion.Close();
+            return res;
+
+        } //Fin de registarUsuario.
+
         public PistaRespuesta armarRespuesta(int idCodigo, string mensaje, List<Pista> listaDePistas)
         {
 

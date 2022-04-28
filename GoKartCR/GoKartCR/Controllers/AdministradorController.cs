@@ -24,8 +24,8 @@ namespace GoKartCR.Controllers
         {
             try
             {
-            var data = preguntasModel.GetPreguntas().Result;
-            return (data);
+                var data = preguntasModel.GetPreguntas().Result;
+                return (data);
             }
             catch (Exception)
             {
@@ -36,7 +36,7 @@ namespace GoKartCR.Controllers
         }
 
 
-        public async Task<IActionResult> envioCorreo(string correo, string Asunto, string mensaje) 
+        public async Task<IActionResult> envioCorreo(string correo, string Asunto, string mensaje)
         {
             try
             {
@@ -65,8 +65,8 @@ namespace GoKartCR.Controllers
             }
 
         }
-    
-    
+
+
         //modelPaquetes
         //obtenerPaquete
         public async Task<IActionResult> Paquetes()
@@ -93,12 +93,12 @@ namespace GoKartCR.Controllers
 
         public IActionResult Pistas()
         {
-            
+
             return View(pistasmodel.obtenerPistas());
         }
 
         public IActionResult AgregarPista(Pista psita)
-           {
+        {
             try
             {
                 if (psita.file != null)
@@ -107,8 +107,8 @@ namespace GoKartCR.Controllers
                     psita.file.OpenReadStream().Read(psita.Imagen, 0, (int)psita.file.Length);
                 }
 
-                var res =  pistasmodel.registrarPista(psita);
-                if (res.idCodigo==0)
+                var res = pistasmodel.registrarPista(psita);
+                if (res.idCodigo == 0)
                 {
                     TempData["Mensaje"] = "Se agrego la pista con exito.success";
                     return RedirectToAction("Pistas", "Administrador");
@@ -192,33 +192,63 @@ namespace GoKartCR.Controllers
 
         }
 
-        //delte
-        [HttpPost]
-        //por id
-        public async Task<IActionResult> EliminarPaquete(int id)
+
+        public async Task<IActionResult> DeletePaquete(int idPaquete)
         {
             try
             {
-                Paquete paquete = new Paquete();
-                paquete.idPaquete = id;
-                var data = paquetemodel.deletePaquete(paquete);
-                if (data.idCodigo == 0)
+                var res = paquetemodel.deletePaquete(idPaquete);
+                if (res.idCodigo == 0)
                 {
-                    TempData["Mensaje"] = "Se elimino el paquete con exito.success";
+                    TempData["Mensaje"] = "Se agrego el paquete con exito.success";
+                    return RedirectToAction("Paquetes", "Administrador");
+                }
+                else if (res.idCodigo == 1)
+                {
+                    TempData["Mensaje"] = "No de pudo eliminar el paquete.error";
                     return RedirectToAction("Paquetes", "Administrador");
                 }
                 else
                 {
-                    TempData["Mensaje"] = "Error al eliminar el paquete.error";
+                    TempData["Mensaje"] = "No de pudo conectar con el servidor.error";
                     return RedirectToAction("Paquetes", "Administrador");
                 }
             }
             catch (Exception)
             {
 
-                throw;
+                TempData["Mensaje"] = "No de pudo conectar con el servidor.error";
+                return RedirectToAction("Paquetes", "Administrador");
             }
+        }
 
+        public async Task<IActionResult> DeletePista(int idPista)
+        {
+            try
+            {
+                var res = pistasmodel.deletePista(idPista);
+                if (res.idCodigo == 0)
+                {
+                    TempData["Mensaje"] = "Se agrego el paquete con exito.success";
+                    return RedirectToAction("Pistas", "Administrador");
+                }
+                else if (res.idCodigo == 1)
+                {
+                    TempData["Mensaje"] = "No de pudo eliminar el paquete.error";
+                    return RedirectToAction("Pistas", "Administrador");
+                }
+                else
+                {
+                    TempData["Mensaje"] = "No de pudo conectar con el servidor.error";
+                    return RedirectToAction("Pistas", "Administrador");
+                }
+            }
+            catch (Exception)
+            {
+
+                TempData["Mensaje"] = "No de pudo conectar con el servidor.error";
+                return RedirectToAction("Pistas", "Administrador");
+            }
         }
     }
 }

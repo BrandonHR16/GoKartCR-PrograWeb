@@ -34,5 +34,22 @@ namespace GoKartCR.Models
             }
 
         }
+
+        public PaqueteRespuesta deletePista(int id)
+        {
+            //DELETE
+            using (var http = new HttpClient())
+            {
+
+
+                var response = http.DeleteAsync("https://localhost:7169/api/Pista/eliminarPista?id=" + id).Result;
+
+                var paquetes = JsonConvert.DeserializeObject<PaqueteRespuesta>(response.Content.ReadAsStringAsync().Result);
+
+                return paquetes;
+
+            }
+
+        }
     }
 }

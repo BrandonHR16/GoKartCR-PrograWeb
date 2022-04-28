@@ -29,7 +29,7 @@
             </button>
         </div>
     </div>
-    <table class="table table-striped">
+    <table class="table" id="tablapaquetes">
         <thead>
             <tr> 
                 <th>IdPaquete</th>
@@ -63,8 +63,7 @@
                     <td>@item.idGoKart</td>
                     <td>
                         <button class="btn btn-warning btnEditarPaquete" id="btnEditarPaquete">Editar</button>
-                        @Html.ActionLink("Eliminar", "EliminarPaquete", new { id = item.idPaquete },
-                            new { @class = "btn btn-danger" })
+                        <button class="btn btn-danger">@Html.ActionLink("Eliminar", "DeletePaquete", new { idPaquete=item.idPaquete, @class="btn btn-danger" })</button>
                     </td>
                 </tr>
             }

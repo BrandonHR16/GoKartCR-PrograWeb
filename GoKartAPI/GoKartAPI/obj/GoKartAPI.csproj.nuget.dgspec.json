@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "G:\\Users\\ManuelAlonso\\Source\\Repos\\GoKartAPI\\GoKartAPI\\GoKartAPI.csproj": {}
+    "D:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartAPI\\GoKartAPI\\GoKartAPI.csproj": {}
   },
   "projects": {
-    "G:\\Users\\ManuelAlonso\\Source\\Repos\\GoKartAPI\\GoKartAPI\\GoKartAPI.csproj": {
+    "D:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartAPI\\GoKartAPI\\GoKartAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Users\\ManuelAlonso\\Source\\Repos\\GoKartAPI\\GoKartAPI\\GoKartAPI.csproj",
+        "projectUniqueName": "D:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartAPI\\GoKartAPI\\GoKartAPI.csproj",
         "projectName": "GoKartAPI",
-        "projectPath": "G:\\Users\\ManuelAlonso\\Source\\Repos\\GoKartAPI\\GoKartAPI\\GoKartAPI.csproj",
-        "packagesPath": "C:\\Users\\ManuelAlonso\\.nuget\\packages\\",
-        "outputPath": "G:\\Users\\ManuelAlonso\\Source\\Repos\\GoKartAPI\\GoKartAPI\\obj\\",
+        "projectPath": "D:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartAPI\\GoKartAPI\\GoKartAPI.csproj",
+        "packagesPath": "C:\\Users\\CPU\\.nuget\\packages\\",
+        "outputPath": "D:\\Universidad\\Universidad\\Proyectos de Programacion\\GoKartCR-PrograWeb\\GoKartAPI\\GoKartAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ManuelAlonso\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\CPU\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +22,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.syncfusion.com/nuget_aspnet/nuget/getsyncfusionpackages/aspnet": {}
         },
         "frameworks": {
           "net6.0": {
@@ -71,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.104\\RuntimeIdentifierGraph.json"
         }
       }
     }

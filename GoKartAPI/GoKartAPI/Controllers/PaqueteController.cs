@@ -124,13 +124,13 @@ namespace GoKartAPI.Controllers
         //deletePaquete
         [HttpDelete]
         [Route("deletePaquete")]
-        public ActionResult<PaqueteRespuesta> deletePaquete(Paquete paquete)
+        public ActionResult<PaqueteRespuesta> deletePaquete(int idpaquete)
         {
 
             try
             {
 
-                var paqueteEliminado = paquetemodel.deletePaquete(paquete, configuracion);
+                var paqueteEliminado = paquetemodel.deletePaquete(idpaquete, configuracion);
 
                 if (paqueteEliminado != null)
                 {

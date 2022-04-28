@@ -262,6 +262,36 @@ namespace GoKartAPI.Controllers
 
         } //Fin.
 
+
+
+        //eliminarPista
+        [HttpDelete]
+        [Route("eliminarPista")]
+        public  ActionResult<PistaRespuesta> eliminarPista(int id){
+                
+                try{
+    
+                    var pista = pistaModel.eliminarPista(id, configuracion);
+    
+                    if(pista != null){
+
+                        return pistaModel.armarRespuesta(0, "Pista eliminada", new List<Pista>());
+    
+                    }else{
+    
+                        eventoModel.registrarEvento("Pista", "Pista no encontrada: " + id, configuracion);
+                        return pistaModel.armarRespuesta(3, "Pista no encontrada: " + id, new List<Pista>());
+    
+                    }
+    
+                }catch(Exception excepcion){
+    
+                    eventoModel.registrarEvento("Pista", "Error: " + excepcion.Message, configuracion);
+                    return pistaModel.armarRespuesta(99, "Error: " + excepcion.Message, new List<Pista>());
+    
+                }
+    
+        }
     } //Fin.
 
 } //Fin.
